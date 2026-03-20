@@ -39,7 +39,7 @@ Our mission is simple: deliver high-performance systems that are secure, scalabl
 If your project demands performance and technical precision, let's discuss your requirements.
 
 - **Primary Channel:** Direct Inbox (On the platform you received our link)
-- **Marketplace:** [Hire Us on Fiverr](https://www.fiverr.com/ahsan_july29)
-- **Portfolio:** [AhsanIT Official](https://ahsan-july29.github.io/portfolio-link)
+- **Marketplace:** [Hire Us on Fiverr](https://www.fiverr.com?search=ahsanit)
+- **Portfolio:** [AhsanIT Official](https://ahsanit.net)
 
 **"Engineered for Stability. Built for Growth."**
