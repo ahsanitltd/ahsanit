@@ -10,7 +10,7 @@ export const Footer = () => {
         <div className="grid lg:grid-cols-3 gap-16 md:gap-20 items-center text-center lg:text-left">
           <div className="flex flex-col items-center lg:items-start">
             <div className="flex items-center gap-4 mb-6">
-              <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Ahsan" alt="Ahsan" className="w-16 h-16 rounded-2xl bg-gold/20 p-1 border-2 border-gold" referrerPolicy="no-referrer" />
+              <img src="" alt="Ahsan" className="w-16 h-16 rounded-2xl bg-gold/20 p-1 border-2 border-gold" referrerPolicy="no-referrer" />
               <div className="text-left">
                 <h4 className="text-xl font-black dark:text-white text-slate-900">Ahsan</h4>
                 <p className="text-sm font-bold text-gold uppercase tracking-widest">Founder & Lead Architect</p>
@@ -38,7 +38,7 @@ export const Footer = () => {
           </div>
         </div>
       </div>
-      
+
       <button onClick={scrollToTop} className="fixed bottom-6 right-6 md:bottom-10 md:right-10 p-3 md:p-4 glass rounded-full text-gold shadow-2xl hover:scale-110 transition-transform z-50">
         <ArrowUpRight className="w-5 h-5 md:w-6 md:h-6 rotate-[-45deg]" />
       </button>
