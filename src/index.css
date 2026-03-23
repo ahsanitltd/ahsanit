@@ -1,0 +1,93 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+  --color-midnight: #050505;
+  --color-gold: #D4AF37;
+  --color-gold-hover: #B8860B;
+  --color-paper: #FDFCF0; /* Warmer, premium light mode background */
+  --color-slate-900: #0F172A;
+  --color-slate-800: #1E293B;
+  --color-slate-700: #334155;
+  --color-slate-600: #475569;
+  --color-slate-500: #64748B;
+  --color-slate-400: #94A3B8;
+  --color-slate-200: #E2E8F0;
+  --color-slate-100: #F1F5F9;
+  --color-slate-50: #F8FAFC;
+
+  --animate-pulse-slow: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  --animate-float: float 6s ease-in-out infinite;
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+  }
+}
+
+@layer base {
+  html { 
+    scroll-behavior: smooth; 
+    font-size: 16px;
+  }
+  
+  body { 
+    @apply antialiased overflow-x-hidden selection:bg-gold selection:text-midnight transition-colors duration-500; 
+    @apply dark:bg-midnight dark:text-slate-200 bg-paper text-slate-900;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display tracking-tight dark:text-white text-slate-900;
+  }
+}
+
+@layer components {
+  .glass {
+    @apply backdrop-blur-xl border transition-all duration-300;
+    @apply dark:border-white/10 dark:bg-white/5 dark:shadow-2xl;
+    @apply border-black/10 bg-white/80 shadow-xl; /* More opaque glass for light mode */
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-gold via-yellow-500 to-amber-600 font-black;
+  }
+
+  .card-hover {
+    @apply transition-all duration-500 hover:-translate-y-3;
+    @apply dark:hover:shadow-[0_20px_50px_rgba(212,175,55,0.15)] dark:hover:border-gold/30;
+    @apply hover:shadow-[0_20px_50px_rgba(0,0,0,0.1)] hover:border-gold/50;
+  }
+
+  .btn-primary {
+    @apply px-6 py-3 md:px-8 md:py-4 rounded-full font-black text-sm md:text-lg transition-all duration-500 transform hover:scale-105 active:scale-95 shadow-lg flex items-center justify-center gap-2 relative overflow-hidden bg-gold text-midnight;
+    &:hover { 
+      @apply bg-gold-hover shadow-[0_0_25px_rgba(212,175,55,0.5)];
+    }
+  }
+
+  .btn-secondary {
+    @apply px-6 py-3 md:px-8 md:py-4 rounded-full font-bold text-sm md:text-lg transition-all duration-300 border-2 flex items-center justify-center gap-2;
+    @apply dark:border-white/10 dark:hover:bg-white/5 dark:text-white;
+    @apply border-black/10 hover:bg-black/5 text-slate-900;
+  }
+
+  .scroll-progress {
+    @apply fixed top-0 left-0 h-1 bg-gold z-[100] origin-left;
+  }
+
+  .blob {
+    @apply absolute blur-[120px] rounded-full opacity-20 -z-10 animate-pulse-slow;
+    @apply dark:bg-gold bg-amber-200; /* Softer blob for light mode */
+  }
+}
+
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { @apply bg-transparent; }
+::-webkit-scrollbar-thumb {
+  @apply rounded-full transition-colors;
+  @apply dark:bg-white/10 dark:hover:bg-white/20;
+  @apply bg-black/10 hover:bg-black/20;
+}
