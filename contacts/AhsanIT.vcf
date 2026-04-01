@@ -1,0 +1,13 @@
+BEGIN:VCARD
+VERSION:2.1
+N:AhsanIT;Ahsan Ahmed;|;;
+FN:Ahsan Ahmed | AhsanIT
+X-ANDROID-CUSTOM:vnd.android.cursor.item/nickname;Ahsan IT;1;;;;;;;;;;;;;
+TEL;PREF:+8801580314701
+TEL;CELL:+8801948484161
+EMAIL;PREF;X-Main:ahsan@ahsanit.net
+ADR;PREF;WORK:;;;Dhaka;;;Bangladesh 
+ORG:Ahsan IT
+TITLE:Founder | Chief Software Engineer
+URL:https://www.ahsanit.net
+END:VCARD
