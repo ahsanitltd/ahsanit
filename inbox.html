@@ -96,80 +96,178 @@
     </div>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
 
     <script>
-        function loadMessages() {
-            const messages = JSON.parse(localStorage.getItem('ahsanit_inbox')) || [];
-            const list = $('#messageList');
-            const emptyState = $('#noData');
 
+        // --- ১. গ্লোবাল কনফিগ ---
+        const LIBS = [
+            "https://code.jquery.com/jquery-3.6.0.min.js",
+        ];
+
+        const SECRET_KEY = "AhsanIT_Architect_Key_@2026";
+        const MASTER_PASSWORD = "admin"; // আপনার ইনবক্স পাসওয়ার্ড
+        const STORAGE_KEY = "ahsanit_inbox";
+
+        // --- ২. লাইব্রেরি লোডার (Sequential Waterfall) ---
+        function loadDependencies(index = 0) {
+            if (index >= LIBS.length) {
+                initAhsanIT(); // সব লোড হলে মেইন অ্যাপ রান হবে
+                return;
+            }
+            const script = document.createElement('script');
+            script.src = LIBS[index];
+            script.async = false;
+            script.onload = () => loadDependencies(index + 1);
+            document.head.appendChild(script);
+        }
+
+        // --- ৩. সিকিউরিটি লজিক (Encryption/Decryption) ---
+        function encryptData(obj) {
+            return CryptoJS.AES.encrypt(JSON.stringify(obj), SECRET_KEY).toString();
+        }
+
+        function decryptInbox() {
+            const data = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+            const decryptedArray = [];
+
+            data.forEach(item => {
+                try {
+                    const bytes = CryptoJS.AES.decrypt(item, SECRET_KEY);
+                    const decryptedText = bytes.toString(CryptoJS.enc.Utf8);
+
+                    // যদি ডিক্রিপশন সাকসেসফুল হয় তবেই পুশ করবে
+                    if (decryptedText) {
+                        decryptedArray.push(JSON.parse(decryptedText));
+                    }
+                } catch (e) {
+                    console.warn("Skipping corrupted or unencrypted data entry.");
+                }
+            });
+
+            return decryptedArray;
+        }
+
+        // --- ৪. কোর ফিচার ফাংশনস ---
+
+        // কন্টাক্ট ফর্ম হ্যান্ডলার
+        function setupContactForm() {
+            $('#localContactForm').on('submit', function (e) {
+                e.preventDefault();
+
+                // বট প্রটেকশন
+                if ($('#botField').val()) return;
+
+                const msg = {
+                    id: Date.now(),
+                    name: $('#userName').val().trim(),
+                    email: $('#userEmail').val().trim(),
+                    message: $('#userMsg').val().trim(),
+                    time: new Date().toLocaleString()
+                };
+
+                let inbox = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+                inbox.push(encryptData(msg));
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(inbox));
+
+                $('#msgStatus').removeClass('d-none').fadeIn().delay(3000).fadeOut();
+                this.reset();
+            });
+        }
+
+        // ইনবক্স টেবিল রেন্ডারার
+        function renderInboxTable() {
+            if ($('#messageList').length === 0) return; // ইনবক্স পেজে না থাকলে স্কিপ করবে
+
+            const userPass = prompt("এই ইনবক্সটি সুরক্ষিত। পাসওয়ার্ড দিন:");
+            if (userPass !== MASTER_PASSWORD) {
+                alert("ভুল পাসওয়ার্ড! এক্সেস ডিনাইড।");
+                window.location.href = "index.html";
+                return;
+            }
+
+            const messages = decryptInbox();
+            const list = $('#messageList');
             list.empty();
 
             if (messages.length === 0) {
                 $('#inboxTable').addClass('d-none');
-                emptyState.removeClass('d-none');
+                $('#noData').removeClass('d-none');
             } else {
                 $('#inboxTable').removeClass('d-none');
-                emptyState.addClass('d-none');
+                $('#noData').addClass('d-none');
 
-                // লেটেস্ট মেসেজ আগে দেখানোর জন্য reverse করা হলো
-                messages.reverse().forEach((msg, index) => {
+                messages.reverse().forEach(msg => {
                     list.append(`
-                    <tr>
-                        <td><span class="badge-time fw-bold">${msg.time}</span></td>
-                        <td class="fw-bold text-primary">${msg.name}</td>
-                        <td><a href="mailto:${msg.email}" class="text-decoration-none text-muted">${msg.email}</a></td>
-                        <td><div style="max-width: 300px; font-size: 0.9rem;">${msg.message}</div></td>
-                        <td class="text-center">
-                            <i class="fa fa-trash-alt delete-btn" onclick="deleteMessage(${msg.id})"></i>
-                        </td>
-                    </tr>
-                `);
+                <tr>
+                    <td><span class="badge bg-light text-dark">${msg.time}</span></td>
+                    <td class="fw-bold text-primary">${msg.name}</td>
+                    <td><a href="mailto:${msg.email}" class="text-muted">${msg.email}</a></td>
+                    <td><div style="max-width: 300px; font-size: 0.85rem;">${msg.message}</div></td>
+                    <td class="text-center">
+                        <button class="btn btn-sm btn-outline-danger" onclick="deleteEntry(${msg.id})">
+                            <i class="fa fa-trash"></i>
+                        </button>
+                    </td>
+                </tr>
+            `);
                 });
             }
         }
 
-        // নির্দিষ্ট একটি মেসেজ ডিলিট করা
-        function deleteMessage(id) {
+        // ডিলিট মেসেজ
+        window.deleteEntry = function (id) {
             Swal.fire({
-                title: 'আপনি কি নিশ্চিত?',
-                text: "এই মেসেজটি চিরতরে মুছে যাবে!",
+                title: 'মুছে ফেলবেন?',
                 icon: 'warning',
                 showCancelButton: true,
-                confirmButtonColor: '#2563eb',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'হ্যাঁ, মুছুন!'
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    let messages = JSON.parse(localStorage.getItem('ahsanit_inbox')) || [];
-                    messages = messages.filter(m => m.id !== id);
-                    localStorage.setItem('ahsanit_inbox', JSON.stringify(messages));
-                    loadMessages();
-                    Swal.fire('ডিলিট হয়েছে!', 'মেসেজটি মুছে ফেলা হয়েছে।', 'success');
+                confirmButtonText: 'হ্যাঁ'
+            }).then((res) => {
+                if (res.isConfirmed) {
+                    let data = decryptInbox();
+                    data = data.filter(m => m.id !== id);
+                    const encryptedData = data.map(m => encryptData(m));
+                    localStorage.setItem(STORAGE_KEY, JSON.stringify(encryptedData));
+                    location.reload();
                 }
+            });
+        };
+
+        // স্লাইডার এবং অন্যান্য UI (আগের সব লজিক মার্জ করা)
+        function initUI() {
+            // Hero Slider
+            if ($('.hero-slider').length) {
+                new Swiper('.hero-slider', {
+                    loop: true,
+                    autoplay: { delay: 5000 },
+                    effect: 'fade',
+                    pagination: { el: '.swiper-pagination', clickable: true }
+                });
+            }
+            // Theme Toggle
+            $('#themeToggle').click(function () {
+                $('body').toggleClass('dark-mode');
+                Cookies.set('theme', $('body').hasClass('dark-mode') ? 'dark' : 'light');
             });
         }
 
-        // সব মেসেজ ক্লিয়ার করা
-        function clearAll() {
-            Swal.fire({
-                title: 'সব ডিলিট করবেন?',
-                icon: 'error',
-                showCancelButton: true,
-                confirmButtonText: 'হ্যাঁ, সব মুছুন'
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    localStorage.removeItem('ahsanit_inbox');
-                    loadMessages();
-                }
+        // --- ৫. বুটস্ট্র্যাপ অ্যাপ ---
+        function initAhsanIT() {
+            $(document).ready(function () {
+                setupContactForm();
+                renderInboxTable();
+                initUI();
+                console.log("AhsanIT Engine: Online & Secure.");
             });
         }
 
-        // পেজ লোড হলে ফাংশনটি রান করবে
-        $(document).ready(function () {
-            loadMessages();
-        });
+        // শুরু করুন
+        loadDependencies();
     </script>
 
 </body>
