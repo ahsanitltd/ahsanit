@@ -1,726 +1,637 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="bn">
 
 <head>
-    <!-- old  -->
-    <meta name="description"
-        content="Ahsan Ahmed - Senior Software Engineer & System Architect. 6+ years experience in Laravel, AWS, and SaaS (ERP, POS, HRM). Expert in database optimization and high performance backend systems.">
-    <meta name="keywords"
-        content="Laravel Developer, FullStack Engineer, System Architect, SaaS Developer, AWS Expert, Fintech Solutions, Logistics Software, POS System Developer, Performance Optimization, Ahsan Ahmed Portfolio">
-    <meta name="author" content="Ahsan Ahmed">
-
-    <meta property="og:title" content="Ahsan Ahmed | Senior Software Architect & Laravel Expert">
-    <meta property="og:description"
-        content="Building scalable, high performance systems for businesses. Specialized in Laravel, AWS, and Multi tenant SaaS.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="ahsan">
-
-
-    <meta name="description"
-        content="Senior Full Stack Engineer with 6+ years experience. Expert in Laravel, AWS, SaaS Architecture, and Database Optimization (3x faster). Specialized in Fintech & Logistics solutions.">
-    <meta name="keywords"
-        content="Senior Laravel Developer, AWS Cloud Engineer, SaaS Architect, Full Stack PHP Developer, Fintech Solution Provider, High Performance Backend, POS System Expert, Ahsan Ahmed">
-    <meta name="author" content="Ahsan Ahmed">
-
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Ahsan Ahmed",
-      "jobTitle": "Senior Software Architect",
-      "knowsAbout": ["Laravel", "AWS", "SaaS Architecture", "Database Optimization", "Fintech", "Logistics"],
-      "description": "Senior Software Engineer specializing in high performance Laravel applications and scalable cloud infrastructure."
-    }
-    </script>
-
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ahsan | Senior Full-Stack Developer</title>
-
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-        rel="stylesheet">
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://unpkg.com">
 
-    <style>
-        :root {
-            --primary: #2563eb;
-            --bg-light: #ffffff;
-            --bg-alt: #e8f1fc;
-            --text-main: #1e293b;
-            --text-muted: #64748b;
-            --border: #e2e8f0;
-        }
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
 
-        body {
-            font-family: "Poppins", sans-serif;
-            background-color: var(--bg-light);
-            color: var(--text-main);
-            line-height: 1.6;
-            text-align: justify !important;
-        }
+    <title>Ahsan IT | Enterprise Solutions & Offers</title>
 
-        .container {
-            max-width: 1300px;
-        }
-
-        /* Section Differentiation */
-        section {
-            padding: 50px 0;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .bg-alternate {
-            background-color: var(--bg-alt);
-        }
-
-        .h4,
-        h4 {
-            font-size: calc(0.9rem + .3vw);
-            font-weight: 600;
-        }
-
-        .heading-style {
-            font-weight: 800;
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-            color: #0f172a;
-        }
-
-        /* Service Cards */
-        .service-card {
-            background: white;
-            border: 1px solid var(--border);
-            padding: 40px;
-            border-radius: 20px;
-            transition: all 0.3s ease;
-            height: 100%;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-        }
-
-        .service-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--primary);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-        }
-
-        .icon-circle {
-            width: 70px;
-            height: 70px;
-            background: #eff6ff;
-            color: var(--primary);
-            border-radius: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.8rem;
-            margin-bottom: 25px;
-        }
-
-        /* Portfolio Filter */
-        .filter-btn {
-            background: white;
-            border: 1px solid var(--border);
-            padding: 10px 25px;
-            border-radius: 50px;
-            margin: 5px;
-            font-weight: 600;
-            transition: 0.3s;
-        }
-
-        .filter-btn.active,
-        .filter-btn:hover {
-            background: var(--primary);
-            color: white;
-            border-color: var(--primary);
-        }
-
-        .project-card {
-            display: none;
-            background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            margin-bottom: 30px;
-            transition: 0.3s;
-        }
-
-        .project-card.visible {
-            display: block;
-        }
-
-        .project-img-box {
-            height: 220px;
-            background: #f1f5f9;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .project-img-box img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: 0.5s;
-        }
-
-        .project-card:hover img {
-            transform: scale(1.1);
-        }
-
-        .project-link {
-            text-decoration: none;
-            color: inherit;
-            /* border: 3px solid var(--border);
-            padding: 10px; */
-        }
-
-        .project-link:hover h5 {
-            color: var(--primary);
-        }
-
-        /* CTA Section */
-        .cta-section {
-            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
-            color: white;
-            border-radius: 30px;
-            padding: 80px 40px;
-            margin: 50px 0;
-        }
-
-        .btn-main {
-            background: var(--primary);
-            color: white;
-            padding: 15px 40px;
-            border-radius: 50px;
-            font-weight: 700;
-            text-decoration: none;
-            display: inline-block;
-            border: none;
-        }
-
-        .tech-card {
-            transition: all 0.3s ease;
-            border: 1px solid transparent !important;
-        }
-
-        .tech-card:hover {
-            transform: translateY(-10px);
-            border-color: #2563eb !important;
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1) !important;
-        }
-
-        .badge-tech {
-            background: #f1f5f9;
-            color: #475569;
-            padding: 6px 12px;
-            border-radius: 8px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            transition: 0.3s;
-        }
-
-        .tech-card:hover .badge-tech {
-            background: #e0e7ff;
-            color: #2563eb;
-        }
-    </style>
-    <style>
-        /* Add this to your CSS for that Agency Look */
-        .transition-hover {
-            transition: all 0.3s ease;
-            border: 1px solid #e2e8f0 !important;
-        }
-
-        .transition-hover:hover {
-            transform: translateY(-10px);
-            border-color: #2563eb !important;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05) !important;
-        }
-
-        .icon-circle {
-            width: 60px;
-            height: 60px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            font-size: 1.5rem;
-        }
-    </style>
-
-
-
-
-
-
-
-
-    <!-- new  -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ahsan IT | Enterprise Full-Stack Solutions</title>
-
-    <!-- Fonts: Poppins -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
-        rel="stylesheet">
-
-    <!-- Bootstrap 5 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css">
+
 </head>
 
-<body class="bg-midnight text-slate-200">
-    <!-- Custom Cursor -->
-    <div id="cursor" class="cursor d-none d-lg-block"></div>
-    <div id="cursor-follower" class="cursor-follower d-none d-lg-block"></div>
-
-    <!-- Scroll Progress -->
-    <div id="scroll-progress" class="scroll-progress"></div>
-
-    <!-- Background Blobs -->
-    <div class="fixed-background">
-        <div class="blob blob-1"></div>
-        <div class="blob blob-2"></div>
-    </div>
-
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg fixed-top transition-all duration-300" id="main-nav">
+<body>
+    <nav class="navbar navbar-expand-lg">
         <div class="container">
-            <a class="navbar-brand fw-black tracking-tighter" href="#">
-                <span class="text-gold">AHSAN</span><span class="text-white">.IT</span>
-            </a>
+            <a class="navbar-brand" href="/">AHSAN <span class="text-primary">IT</span></a>
+            <div class="collapse navbar-collapse" id="ahsanNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item mega-menu">
+                        <a class="nav-link fw-bold">Script Marketplace <i class="fa fa-chevron-down small ms-1"></i></a>
+                        <div class="mega-dropdown-box">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <h6 class="fw-bold text-primary mb-3">SaaS Solutions</h6>
+                                        <ul class="list-unstyled sub-menu-list">
+                                            <li><a href="#"><i class="fa fa-caret-right me-2"></i>Multi-tenant POS
+                                                    System</a></li>
+                                            <li><a href="#"><i class="fa fa-caret-right me-2"></i>Inventory
+                                                    Management</a></li>
+                                            <li><a href="#"><i class="fa fa-caret-right me-2"></i>HRM & Payroll
+                                                    Engine</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <h6 class="fw-bold text-primary mb-3">E-Commerce</h6>
+                                        <ul class="list-unstyled sub-menu-list">
+                                            <li><a href="#"><i class="fa fa-caret-right me-2"></i>Multi-vendor
+                                                    Marketplace</a></li>
+                                            <li><a href="#"><i class="fa fa-caret-right me-2"></i>Grocery Delivery
+                                                    App</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-6 p-5 rounded-4 text-center border"
+                                        style="background: var(--card-bg);">
+                                        <h2 class="fw-bold">Looking for Custom Code?</h2>
+                                        <p class="text-muted">Building scalable, high-performance systems with Laravel &
+                                            AWS.</p>
+                                        <button class="btn btn-primary rounded-pill px-5 fw-bold">Explore All
+                                            Scripts</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
 
-            <div class="d-flex align-items-center gap-3 order-lg-last">
-                <button id="theme-toggle"
-                    class="btn btn-link text-decoration-none p-2 rounded-circle hover-bg-white-10">
-                    <i data-lucide="sun" class="sun-icon d-none"></i>
-                    <i data-lucide="moon" class="moon-icon"></i>
-                </button>
-                <button class="btn btn-primary d-none d-md-flex" data-bs-toggle="modal" data-bs-target="#contactModal">
-                    GET IN TOUCH
-                </button>
-                <button class="navbar-toggler border-0 p-2" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarNav">
-                    <i data-lucide="menu" class="text-white"></i>
-                </button>
-            </div>
+                    <li class="nav-item mega-menu">
+                        <a class="nav-link fw-bold">Our Expertise <i class="fa fa-chevron-down small ms-1"></i></a>
+                        <div class="mega-dropdown-box" style="width: 50vw; left: 25%; border-radius: 0 0 20px 20px;">
+                            <div class="row">
+                                <div class="col-6 border-end">
+                                    <h6 class="fw-bold text-primary">Technical Arsenal</h6>
+                                    <ul class="list-unstyled sub-menu-list">
+                                        <li><a href="#">PHP / Laravel Expert</a></li>
+                                        <li><a href="#">System Architecture</a></li>
+                                        <li><a href="#">AWS Cloud Integration</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-6 text-center d-flex align-items-center justify-content-center">
+                                    <div class="text-dark-emphasis">
+                                        <h4 class="fw-bold">6+ Years</h4>
+                                        <p class="small text-muted">Of Professional Experience</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
 
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto gap-lg-4 py-4 py-lg-0">
-                    <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#tech">Stack</a></li>
+                    <li class="nav-item"><a class="nav-link fw-bold" href="#">Services</a></li>
+                    <li class="nav-item"><a class="nav-link fw-bold" href="#">Our Process</a></li>
+
                 </ul>
+                <div class="d-flex gap-2">
+                    <button id="themeToggle" class="btn btn-light rounded-circle border shadow-sm">
+                        <i class="fa fa-moon"></i>
+                    </button>
+                    <button class="btn btn-primary rounded-pill px-4 fw-bold shadow-sm start-project">Hire
+                        Developer</button>
+                </div>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero-section d-flex align-items-center min-vh-100 pt-5">
-        <div class="container text-center">
-            <div class="badge-container mb-4">
-                <span class="badge rounded-pill bg-gold-transparent text-gold border border-gold px-3 py-2 scale-up">
-                    <span class="me-2"
-                        style="width: 8px; height: 8px; background: #22c55e; border-radius: 50%; display: inline-block;"></span>
-                    AVAILABLE FOR NEW CHALLENGES
-                    <i data-lucide="zap" class="w-4 h-4 me-1"></i>
-                </span>
-            </div>
-            <h1 class="display-1 fw-black tracking-tighter mb-4 scale-up">
-                WE BUILD <span class="text-gradient">&nbsp;SCALABLE&nbsp;</span><br>
-                DIGITAL &nbsp;ENGINES.
-            </h1>
-            <p class="lead text-slate-400 mx-auto mb-5 max-w-2xl scale-up">
-                Enterprise-grade full-stack solutions for high-concurrency ecosystems.
-                We transform complex business logic into high-performance digital infrastructure.
-                We don't just "write code." We solve critical bottlenecks optimizing slow databases and building secure,
-                high traffic infrastructures that scale with your growth.
-            </p>
-            <div class="d-flex flex-column flex-md-row justify-content-center gap-4 scale-up">
-                <a href="https://www.fiverr.com/ahsan_july29" target="_blank"
-                    class="btn btn-primary btn-lg rounded-pill px-5 py-3 fw-bold shadow-lg border-0"
-                    style="background: #2563eb;">
-                    Hire Us on Fiverr
-                    <i data-lucide="arrow-right" class="ms-2"></i>
-                </a>
-                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#contactModal">
-                    START YOUR PROJECT <i data-lucide="arrow-right" class="ms-2"></i>
-                </button>
-                <a href="#portfolio" class="btn btn-secondary">
-                    VIEW PORTFOLIO
-                    <i data-lucide="arrow-right" class="ms-2"></i>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Stats Section -->
-    <section class="stats-section py-5">
-        <div class="container">
-            <div class="row g-4 text-center">
-                <div class="col-6 col-md-3">
-                    <div class="stat-item scale-up">
-                        <h2 class="display-4 fw-black text-white mb-0">150+</h2>
-                        <p class="text-gold small fw-bold tracking-widest text-uppercase">Projects Delivered</p>
-                    </div>
-                </div>
-                <div class="col-6 col-md-3">
-                    <div class="stat-item scale-up">
-                        <h2 class="display-4 fw-black text-white mb-0">99.9%</h2>
-                        <p class="text-gold small fw-bold tracking-widest text-uppercase">Uptime Record</p>
-                    </div>
-                </div>
-                <div class="col-6 col-md-3">
-                    <div class="stat-item scale-up">
-                        <h2 class="display-4 fw-black text-white mb-0">10M+</h2>
-                        <p class="text-gold small fw-bold tracking-widest text-uppercase">Requests/Day</p>
-                    </div>
-                </div>
-                <div class="col-6 col-md-3">
-                    <div class="stat-item scale-up">
-                        <h2 class="display-4 fw-black text-white mb-0">8+</h2>
-                        <p class="text-gold small fw-bold tracking-widest text-uppercase">Years Experience</p>
+    <div class="swiper hero-slider">
+        <div class="swiper-wrapper">
+            <div id="slider_1" class="swiper-slide"
+                style="background-image: url('https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=2070');">
+                <div class="slide-overlay"></div>
+                <div class="container slide-content">
+                    <div class="col-lg-7">
+                        <span class="offer-badge">সীমিত সময়ের অফার!</span>
+                        <h1 class="display-3 fw-800 mb-2">প্রফেশনাল বিজনেস ওয়েবসাইট</h1>
+                        <div class="price-tag">
+                            <span class="old-price">১৫০০৳</span>
+                            <span class="new-price">৫০০৳</span>
+                        </div>
+                        <ul class="feature-list">
+                            <li><i class="fa fa-check-circle"></i> ১ বছরের ফ্রি ডোমেইন এবং হোস্টিং</li>
+                            <li><i class="fa fa-check-circle"></i> ১০০% মোবাইল রেসপন্সিভ ডিজাইন</li>
+                            <li><i class="fa fa-check-circle"></i> লাইফটাইম টেকনিক্যাল সাপোর্ট</li>
+                        </ul>
+                        <div class="d-flex gap-3">
+                            <a href="https://fiverr.com/ahsan_july29"
+                                class="btn btn-success btn-lg px-5 rounded-pill shadow">Hire on Fiverr</a>
+                            <button class="btn btn-outline-light btn-lg px-5 rounded-pill start-project">অফারটি
+                                নিন</button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- Portfolio Section -->
-    <section id="portfolio" class="portfolio-section py-100 bg-black-50">
-        <div class="container">
-            <div
-                class="section-header d-flex flex-column flex-md-row justify-content-between align-items-md-end mb-5 gap-4 scale-up">
-                <div>
-                    <h2 class="display-3 fw-black mb-0">SELECTED <span class="text-gold">WORKS</span></h2>
-                    <p class="text-slate-400 mt-2">Enterprise ecosystems & high-performance applications.</p>
+            <div id="slider_2" class="swiper-slide"
+                style="background-image: url('https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=2070');">
+                <div class="slide-overlay"></div>
+                <div class="container slide-content">
+                    <div class="col-lg-7">
+                        <span class="offer-badge" style="background: #22c55e;">এক্সক্লুসিভ স্ক্রিপ্ট</span>
+                        <h1 class="display-3 fw-800 mb-2">অ্যাডভান্সড ইনভেন্টরি POS</h1>
+                        <p class="lead mb-4">আপনার দোকানের হিসাব রাখুন এখন হাতের মুঠোয়। এডমিন প্যানেল সহ সম্পূর্ণ সেটআপ
+                            ফ্রি!</p>
+                        <div class="price-tag">
+                            <span class="old-price">৫০০০৳</span>
+                            <span class="new-price">১৯৯৯৳</span>
+                        </div>
+                        <div class="d-flex gap-3">
+                            <a href="https://fiverr.com/ahsan_july29"
+                                class="btn btn-success btn-lg px-5 rounded-pill shadow">Hire on Fiverr</a>
+                            <button class="btn btn-outline-light btn-lg px-5 rounded-pill start-project">ডেমো
+                                দেখুন</button>
+                        </div>
+                    </div>
                 </div>
-                <button class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#contactModal">
-                    REQUEST CASE STUDIES
-                </button>
             </div>
-            <div class="row g-4" id="portfolio-grid">
-                <!-- Dynamic Content via jQuery -->
+
+            <div id="slider_2" class="swiper-slide" style="background-color: black;">
+                <div class="slide-overlay"></div>
+                <div class="container slide-content">
+                    <div class="col-lg-7">
+                        <span class="offer-badge" style="background: #22c55e;">এক্সক্লুসিভ স্ক্রিপ্ট</span>
+                        <h1 class="display-3 fw-800 mb-2">অ্যাডভান্সড ইনভেন্টরি POS</h1>
+                        <p class="lead mb-4">আপনার দোকানের হিসাব রাখুন এখন হাতের মুঠোয়। এডমিন প্যানেল সহ সম্পূর্ণ সেটআপ
+                            ফ্রি!</p>
+                        <div class="price-tag">
+                            <span class="old-price">৫০০০৳</span>
+                            <span class="new-price">১৯৯৯৳</span>
+                        </div>
+                        <div class="d-flex gap-3">
+                            <a href="https://fiverr.com/ahsan_july29"
+                                class="btn btn-success btn-lg px-5 rounded-pill shadow">Hire on Fiverr</a>
+                            <div class="d-flex gap-3">
+                                <a href="https://fiverr.com/ahsan_july29"
+                                    class="btn btn-success btn-lg px-5 rounded-pill fw-bold">Hire on Fiverr</a>
+                                <button class="btn btn-outline-light btn-lg px-5 rounded-pill start-project">ডেমো
+                                    দেখুন</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </section>
 
-    <!-- Services Section -->
-    <section id="services" class="services-section py-100">
+        <div class="slide-counter" id="counter">01</div>
+        <div class="swiper-pagination"></div>
+        <!-- <div class="swiper-button-next text-white d-none d-md-flex"></div>
+        <div class="swiper-button-prev text-white d-none d-md-flex"></div> -->
+    </div>
+
+    <!-- Stats  -->
+    <div class="stats-bar border-bottom py-3" style="background: var(--card-bg);">
         <div class="container">
-            <div class="section-header text-center mb-5 scale-up">
-                <h2 class="display-3 fw-black mb-3">CORE <span class="text-gold">EXPERTISE</span></h2>
-                <p class="text-slate-400 max-w-2xl mx-auto">Specialized engineering for complex digital requirements.
-                </p>
-            </div>
-            <div class="row g-4" id="services-grid">
-                <!-- Dynamic Content via jQuery -->
+            <div class="d-flex flex-wrap justify-content-between align-items-center gap-3">
+                <div class="d-flex align-items-center gap-2">
+                    <i class="fa fa-code-branch text-primary"></i>
+                    <span class="fw-bold counter" data-target="6" style="font-size: 1.2rem;">
+                        6
+                    </span>
+                    <small class="text-muted text-uppercase fw-semibold" style="letter-spacing: 1px;">Years Exp.</small>
+                </div>
+                <div class="vr d-none d-md-block opacity-25"></div>
+                <div class="d-flex align-items-center gap-2">
+                    <i class="fa fa-rocket text-success"></i>
+                    <span class="fw-bold counter" data-target="150" style="font-size: 1.2rem;">
+                        10
+                    </span>
+                    <small class="text-muted text-uppercase fw-semibold" style="letter-spacing: 1px;">Projects</small>
+                </div>
+                <div class="vr d-none d-md-block opacity-25"></div>
+                <div class="d-flex align-items-center gap-2">
+                    <i class="fa fa-users text-warning"></i>
+                    <span class="fw-bold counter" data-target="80" style="font-size: 1.2rem;">
+                        7
+                    </span>
+                    <small class="text-muted text-uppercase fw-semibold" style="letter-spacing: 1px;">Clients</small>
+                </div>
+                <div class="vr d-none d-md-block opacity-25"></div>
+                <div class="d-flex align-items-center gap-2">
+                    <i class="fa fa-headset text-danger"></i>
+                    <span class="fw-bold" style="font-size: 1.2rem;">
+                        24/7
+                    </span>
+                    <small class="text-muted text-uppercase fw-semibold" style="letter-spacing: 1px;">Support</small>
+                </div>
             </div>
         </div>
-    </section>
+    </div>
 
-    <!-- Tech Arsenal Section -->
-    <section id="tech" class="tech-section py-100">
+    <!-- Services & Marketplace  -->
+    <section class="marketplace py-5">
         <div class="container">
-            <div class="section-header text-center mb-5 scale-up">
-                <h2 class="display-3 fw-black mb-3">TECH <span class="text-gold">ARSENAL</span></h2>
-                <p class="text-slate-400">Battle-tested stacks for enterprise deployment.</p>
+            <div class="text-center mb-5">
+                <h6 class="text-primary fw-bold text-uppercase small" style="letter-spacing: 2px;">স্ক্রিপ্ট
+                    মার্কেটপ্লেস</h6>
+                <h2 class="fw-bold">আপনার ব্যবসার জন্য ১০০% রেডি সল্যুশন</h2>
             </div>
-            <div class="row g-4" id="tech-grid">
-                <!-- Dynamic Content via jQuery -->
-            </div>
-        </div>
-    </section>
 
-    <!-- Process Section -->
-    <section id="process" class="process-section py-100">
-        <div class="container">
-            <div class="section-header text-center mb-5 scale-up">
-                <h2 class="display-3 fw-black mb-3">OUR <span class="text-gold">PROCESS</span></h2>
-                <p class="text-slate-400">A systematic approach to engineering excellence.</p>
+            <div class="d-flex justify-content-start justify-content-md-center overflow-auto pb-3 mb-5 gap-2 custom-scroll"
+                id="filter-buttons">
+                <button class="btn btn-primary rounded-pill px-4 filter-btn active" data-filter="*">সবগুলো</button>
+                <button class="btn btn-outline-primary rounded-pill px-4 filter-btn"
+                    data-filter=".ecommerce">ই-কমার্স</button>
+                <button class="btn btn-outline-primary rounded-pill px-4 filter-btn" data-filter=".pos">পিওএস
+                    (POS)</button>
+                <button class="btn btn-outline-primary rounded-pill px-4 filter-btn" data-filter=".erp">ইআরপি
+                    (ERP)</button>
+                <button class="btn btn-outline-primary rounded-pill px-4 filter-btn"
+                    data-filter=".education">এডুকেশন</button>
+                <button class="btn btn-outline-primary rounded-pill px-4 filter-btn"
+                    data-filter=".hospital">হসপিটাল</button>
+                <button class="btn btn-outline-primary rounded-pill px-4 filter-btn" data-filter=".booking">বুকিং
+                    সিস্টেম</button>
+                <button class="btn btn-outline-primary rounded-pill px-4 filter-btn" data-filter=".hrm">এইচআরএম
+                    (HRM)</button>
+                <button class="btn btn-outline-primary rounded-pill px-4 filter-btn"
+                    data-filter=".delivery">ডেলিভারি</button>
+                <button class="btn btn-outline-primary rounded-pill px-4 filter-btn"
+                    data-filter=".portfolio">পোর্টফোলিও</button>
+                <button class="btn btn-outline-primary rounded-pill px-4 filter-btn" data-filter=".saas">SaaS
+                    অ্যাপ</button>
             </div>
-            <div class="row g-4" id="process-grid">
-                <!-- Dynamic Content via jQuery -->
+
+            <div class="row g-4 grid">
+                <div class="col-lg-4 col-md-6 grid-item ecommerce">
+                    <div class="product-card h-100 p-4 rounded-4 border shadow-sm position-relative"
+                        style="background: var(--card-bg);">
+                        <div class="position-absolute top-0 start-0 m-3"><span
+                                class="badge bg-danger rounded-pill px-3">অফার!</span></div>
+                        <div class="text-center mt-4">
+                            <i class="fa fa-shopping-cart text-primary fs-2 mb-3"></i>
+                            <h5 class="fw-bold">মাল্টি-ভেন্ডর শপ</h5>
+                            <div class="price-section my-3">
+                                <span class="text-muted text-decoration-line-through me-2">৳৫০০০</span>
+                                <span class="text-success fw-bold fs-4">৳১৫০০</span>
+                            </div>
+                            <a href="#" class="btn btn-primary w-100 rounded-pill fw-bold">বিস্তারিত দেখুন</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 grid-item ecommerce">
+                    <div class="product-card h-100 p-4 rounded-4 border shadow-sm position-relative"
+                        style="background: var(--card-bg);">
+                        <div class="text-center mt-4">
+                            <i class="fa fa-store text-primary fs-2 mb-3"></i>
+                            <h5 class="fw-bold">সিঙ্গেল ভেন্ডর গ্রোসারি</h5>
+                            <div class="price-section my-3">
+                                <span class="text-muted text-decoration-line-through me-2">৳৩০০০</span>
+                                <span class="text-success fw-bold fs-4">৳৯৯৯</span>
+                            </div>
+                            <a href="#" class="btn btn-primary w-100 rounded-pill fw-bold">বিস্তারিত দেখুন</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 grid-item pos">
+                    <div class="product-card h-100 p-4 rounded-4 border shadow-sm position-relative"
+                        style="background: var(--card-bg);">
+                        <div class="text-center mt-4">
+                            <i class="fa fa-calculator text-warning fs-2 mb-3"></i>
+                            <h5 class="fw-bold">রেস্টুরেন্ট POS</h5>
+                            <div class="price-section my-3">
+                                <span class="text-muted text-decoration-line-through me-2">৳৪০০০</span>
+                                <span class="text-success fw-bold fs-4">৳১৯৯৯</span>
+                            </div>
+                            <a href="#" class="btn btn-primary w-100 rounded-pill fw-bold">বিস্তারিত দেখুন</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 grid-item pos">
+                    <div class="product-card h-100 p-4 rounded-4 border shadow-sm position-relative"
+                        style="background: var(--card-bg);">
+                        <div class="text-center mt-4">
+                            <i class="fa fa-pills text-warning fs-2 mb-3"></i>
+                            <h5 class="fw-bold">ফার্মেসি POS</h5>
+                            <div class="price-section my-3">
+                                <span class="text-muted text-decoration-line-through me-2">৳৩০০০</span>
+                                <span class="text-success fw-bold fs-4">৳১৪৯৯</span>
+                            </div>
+                            <a href="#" class="btn btn-primary w-100 rounded-pill fw-bold">বিস্তারিত দেখুন</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 grid-item erp">
+                    <div class="product-card h-100 p-4 rounded-4 border shadow-sm position-relative"
+                        style="background: var(--card-bg);">
+                        <div class="text-center mt-4">
+                            <i class="fa fa-building text-danger fs-2 mb-3"></i>
+                            <h5 class="fw-bold">ইনভেন্টরি ERP</h5>
+                            <div class="price-section my-3">
+                                <span class="text-muted text-decoration-line-through me-2">৳১৫০০০</span>
+                                <span class="text-success fw-bold fs-4">৳৫৯৯৯</span>
+                            </div>
+                            <a href="#" class="btn btn-primary w-100 rounded-pill fw-bold">বিস্তারিত দেখুন</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 grid-item erp">
+                    <div class="product-card h-100 p-4 rounded-4 border shadow-sm position-relative"
+                        style="background: var(--card-bg);">
+                        <div class="text-center mt-4">
+                            <i class="fa fa-chart-line text-danger fs-2 mb-3"></i>
+                            <h5 class="fw-bold">অ্যাকাউন্টিং ERP</h5>
+                            <div class="price-section my-3">
+                                <span class="text-muted text-decoration-line-through me-2">৳১০০০০</span>
+                                <span class="text-success fw-bold fs-4">৳৩৯৯৯</span>
+                            </div>
+                            <a href="#" class="btn btn-primary w-100 rounded-pill fw-bold">বিস্তারিত দেখুন</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 grid-item education">
+                    <div class="product-card h-100 p-4 rounded-4 border shadow-sm position-relative"
+                        style="background: var(--card-bg);">
+                        <div class="text-center mt-4">
+                            <i class="fa fa-university text-info fs-2 mb-3"></i>
+                            <h5 class="fw-bold">স্কুল ম্যানেজমেন্ট</h5>
+                            <div class="price-section my-3">
+                                <span class="text-muted text-decoration-line-through me-2">৳১২০০০</span>
+                                <span class="text-success fw-bold fs-4">৳৪৯৯৯</span>
+                            </div>
+                            <a href="#" class="btn btn-primary w-100 rounded-pill fw-bold">বিস্তারিত দেখুন</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 grid-item education">
+                    <div class="product-card h-100 p-4 rounded-4 border shadow-sm position-relative"
+                        style="background: var(--card-bg);">
+                        <div class="text-center mt-4">
+                            <i class="fa fa-video text-info fs-2 mb-3"></i>
+                            <h5 class="fw-bold">LMS কোর্স প্লাটফর্ম</h5>
+                            <div class="price-section my-3">
+                                <span class="text-muted text-decoration-line-through me-2">৳৮০০০</span>
+                                <span class="text-success fw-bold fs-4">৳২৯৯৯</span>
+                            </div>
+                            <a href="#" class="btn btn-primary w-100 rounded-pill fw-bold">বিস্তারিত দেখুন</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="no-data-card" class="col-12 d-none">
+                    <div class="p-5 rounded-4 text-center border shadow-sm" style="background: var(--card-bg);">
+                        <i class="fa fa-search text-muted opacity-50 mb-3" style="font-size: 3rem;"></i>
+                        <h4 class="fw-bold text-muted">এই ক্যাটাগরিতে কাজ চলছে...</h4>
+                        <p class="text-muted small">খুব শীঘ্রই আমরা এখানে নতুন সল্যুশন যুক্ত করব।</p>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
 
     <!-- Testimonials Section -->
-    <section id="testimonials" class="testimonials-section py-100 bg-black-50">
+    <section class="testimonials py-5 overflow-hidden" style="background: rgba(0,0,0,0.02);">
         <div class="container">
-            <div class="section-header text-center mb-5 scale-up">
-                <h2 class="display-3 fw-black mb-3">CLIENT <span class="text-gold">FEEDBACK</span></h2>
-                <p class="text-slate-400">Trusted by industry leaders worldwide.</p>
+            <div class="text-center mb-5">
+                <span class="badge bg-primary bg-opacity-10 text-primary px-3 py-2 rounded-pill mb-2 fw-bold">সফল
+                    গল্প</span>
+                <h2 class="fw-bold display-5">ক্লায়েন্টদের সন্তুষ্টিই আমার মূল লক্ষ্য</h2>
+                <div class="mx-auto bg-primary mt-3" style="height: 4px; width: 60px; border-radius: 2px;"></div>
             </div>
-            <div class="row g-4" id="testimonials-grid">
-                <!-- Dynamic Content via jQuery -->
+
+            <div class="swiper testimonial-slider pb-5">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="review-card p-4 rounded-4 border  shadow-sm h-100 dark-bg-adjust">
+                            <div class="d-flex align-items-center gap-3 mb-3">
+                                <img src="https://i.pravatar.cc/150?u=1" class="rounded-circle border" width="55"
+                                    alt="Client">
+                                <div>
+                                    <h6 class="fw-bold mb-0">কামরুল হাসান</h6>
+                                    <small class="text-muted">CEO, ShopUp Ltd.</small>
+                                </div>
+                            </div>
+                            <div class="stars text-warning mb-2 small"><i class="fa fa-star"></i><i
+                                    class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i
+                                    class="fa fa-star"></i></div>
+                            <p class="text-muted small">"উনার মাল্টি-ভেন্ডর সিস্টেমটি অসাধারণ। কোড অনেক ক্লিন এবং
+                                সিকিউরিটি নিয়ে কোনো চিন্তা করতে হয় না।"</p>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="review-card p-4 rounded-4 border  shadow-sm h-100 dark-bg-adjust">
+                            <div class="d-flex align-items-center gap-3 mb-3">
+                                <img src="https://i.pravatar.cc/150?u=2" class="rounded-circle border" width="55"
+                                    alt="Client">
+                                <div>
+                                    <h6 class="fw-bold mb-0">জাহিদ আহমেদ</h6>
+                                    <small class="text-muted">Owner, PharmaCare</small>
+                                </div>
+                            </div>
+                            <div class="stars text-warning mb-2 small"><i class="fa fa-star"></i><i
+                                    class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i
+                                    class="fa fa-star"></i></div>
+                            <p class="text-muted small">"ফার্মেসি ইনভেন্টরির জন্য উনার POS সিস্টেমটি সেরা। এক্সপায়ারি
+                                ডেট ট্র্যাকিং ফিচারটি আমার অনেক উপকারে এসেছে।"</p>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="review-card p-4 rounded-4 border  shadow-sm h-100 dark-bg-adjust">
+                            <div class="d-flex align-items-center gap-3 mb-3">
+                                <img src="https://i.pravatar.cc/150?u=3" class="rounded-circle border" width="55"
+                                    alt="Client">
+                                <div>
+                                    <h6 class="fw-bold mb-0">তানভীর রহমান</h6>
+                                    <small class="text-muted">Manager, Green University</small>
+                                </div>
+                            </div>
+                            <div class="stars text-warning mb-2 small"><i class="fa fa-star"></i><i
+                                    class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i
+                                    class="fa fa-star"></i></div>
+                            <p class="text-muted small">"স্কুল ম্যানেজমেন্ট ERP প্রজেক্টে আহসান ভাই অনেক সাপোর্ট
+                                দিয়েছেন। উনার লজিক্যাল স্কিল সত্যিই প্রশংসনীয়।"</p>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="review-card p-4 rounded-4 border  shadow-sm h-100 dark-bg-adjust">
+                            <div class="d-flex align-items-center gap-3 mb-3">
+                                <img src="https://i.pravatar.cc/150?u=4" class="rounded-circle border" width="55"
+                                    alt="Client">
+                                <div>
+                                    <h6 class="fw-bold mb-0">মেহেদী হাসান</h6>
+                                    <small class="text-muted">Digital Marketer</small>
+                                </div>
+                            </div>
+                            <div class="stars text-warning mb-2 small"><i class="fa fa-star"></i><i
+                                    class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i
+                                    class="fa fa-star"></i></div>
+                            <p class="text-muted small">"উনার ল্যান্ডিং পেজ ডিজাইনগুলো অনেক হাই-কনভার্টিং। আমার
+                                অ্যাফিলিয়েট সাইটের জন্য দারুন রেজাল্ট পাচ্ছি।"</p>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="review-card p-4 rounded-4 border  shadow-sm h-100 dark-bg-adjust">
+                            <div class="d-flex align-items-center gap-3 mb-3">
+                                <img src="https://i.pravatar.cc/150?u=5" class="rounded-circle border" width="55"
+                                    alt="Client">
+                                <div>
+                                    <h6 class="fw-bold mb-0">আব্দুল্লাহ আল মাসুম</h6>
+                                    <small class="text-muted">Fiverr Client</small>
+                                </div>
+                            </div>
+                            <div class="stars text-warning mb-2 small"><i class="fa fa-star"></i><i
+                                    class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i
+                                    class="fa fa-star"></i></div>
+                            <p class="text-muted small">"Laravel এবং Vue এর কম্বিনেশনে উনি চমৎকার ড্যাশবোর্ড তৈরি করে
+                                দিয়েছেন। ডেটা ফিল্টারিং অনেক ফাস্ট।"</p>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="review-card p-4 rounded-4 border  shadow-sm h-100 dark-bg-adjust">
+                            <div class="d-flex align-items-center gap-3 mb-3">
+                                <img src="https://i.pravatar.cc/150?u=6" class="rounded-circle border" width="55"
+                                    alt="Client">
+                                <div>
+                                    <h6 class="fw-bold mb-0">সালেহ আহমেদ</h6>
+                                    <small class="text-muted">E-shop Owner</small>
+                                </div>
+                            </div>
+                            <div class="stars text-warning mb-2 small"><i class="fa fa-star"></i><i
+                                    class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i
+                                    class="fa fa-star"></i></div>
+                            <p class="text-muted small">"খুবই অল্প বাজেটে প্রিমিয়াম কোয়ালিটি স্ক্রিপ্ট পেলাম। উনার
+                                ব্যবহার এবং কাজের ধরন অনেক প্রফেশনাল।"</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
             </div>
         </div>
     </section>
 
-    <!-- Consultation Section -->
-    <section class="consultation-section py-100">
+
+
+    <footer class="footer-section pt-5 pb-4 border-top" style="background: var(--card-bg);">
         <div class="container">
-            <div class="consultation-card glass p-5 rounded-5 text-center position-relative overflow-hidden scale-up">
-                <div class="position-relative z-1">
-                    <h2 class="display-3 fw-black mb-4">READY TO SCALE?</h2>
-                    <p class="lead text-slate-400 mb-5 max-w-2xl mx-auto">
-                        Let's discuss your technical requirements and architect a solution that grows with your
-                        business.
-                    </p>
-                    <div class="row justify-content-center">
-                        <div class="col-lg-10">
-                            <div class="p-4 rounded-4" style="background-color: #f8fafc; border: 1px solid #cbd5e1;">
-                                <div class="d-flex flex-wrap justify-content-center gap-4">
+            <div class="row g-5 mb-5">
 
-                                    <div class="text-start">
-                                        <p class="small fw-bold text-uppercase text-primary mb-2"
-                                            style="letter-spacing: 1px;">Primary Channel</p>
-                                        <div class="d-flex align-items-center gap-2">
-                                            <span class="fs-4">📩</span>
-                                            <div>
-                                                <span class="d-block fw-bold text-dark">Inbox on same platform</span>
-                                                <small class="text-muted">Direct response to your inquiry</small>
-                                            </div>
-                                        </div>
-                                    </div>
+                <div class="col-lg-4">
+                    <div class="founder-card">
+                        <h5 class="fw-bold text-primary mb-1">Ahsan Ahmed</h5>
+                        <p class="text-muted small mb-3">Founder & Full Stack Software Engineer, <span
+                                class="text-primary fw-semibold">AhsanIT</span></p>
 
-                                    <div class="vr d-none d-md-block mx-3 text-muted opacity-25"></div>
+                        <div class="expertise-list d-flex flex-column gap-2 mb-4">
+                            <div class="d-flex align-items-center gap-2">
+                                <i class="fa fa-layer-group text-primary opacity-75 small"></i>
+                                <span class="small fw-medium text-muted">Enterprise Laravel Architecture</span>
+                            </div>
+                            <div class="d-flex align-items-center gap-2">
+                                <i class="fa fa-shield-alt text-primary opacity-75 small"></i>
+                                <span class="small fw-medium text-muted">Fintech & Secure API Engineering</span>
+                            </div>
+                            <div class="d-flex align-items-center gap-2">
+                                <i class="fa fa-cloud text-primary opacity-75 small"></i>
+                                <span class="small fw-medium text-muted">Cloud Operations & DevOps</span>
+                            </div>
+                        </div>
 
-                                    <div class="text-start">
-                                        <p class="small fw-bold text-uppercase text-success mb-2"
-                                            style="letter-spacing: 1px;">Marketplace</p>
-                                        <a href="https://www.fiverr.com/" target="_blank"
-                                            class="text-decoration-none d-flex align-items-center gap-2">
-                                            <span class="fs-4">🟢</span>
-                                            <div>
-                                                <span class="d-block fw-bold text-dark">Hire via Fiverr</span>
-                                                <small class="text-muted">Secure escrow & milestone based</small>
-                                            </div>
-                                        </a>
-                                    </div>
+                        <div class="d-flex gap-2">
+                            <a href="#" class="btn btn-sm btn-light rounded-circle shadow-sm"><i
+                                    class="fab fa-facebook-f text-primary"></i></a>
+                            <a href="#" class="btn btn-sm btn-light rounded-circle shadow-sm"><i
+                                    class="fab fa-linkedin-in text-primary"></i></a>
+                            <a href="https://github.com/your-profile"
+                                class="btn btn-sm btn-light rounded-circle shadow-sm"><i
+                                    class="fab fa-github text-dark"></i></a>
+                            <a href="https://wa.me/8801580314701"
+                                class="btn btn-sm btn-light rounded-circle shadow-sm"><i
+                                    class="fab fa-whatsapp text-success"></i></a>
+                        </div>
+                    </div>
+                </div>
 
-                                </div>
-
-                                <div class="mt-4 pt-3 border-top border-light">
-                                    <p class="mb-0 small text-secondary">
-                                        <i class="fas fa-clock me-1 text-primary"></i> Guaranteed response within
-                                        <strong>4
-                                            Business Hours</strong>
-                                        <span class="mx-2">|</span>
-                                        <i class="fas fa-shield-alt text-primary me-1"></i> Technical NDAs &
-                                        Confidentiality
-                                        Respected
-                                    </p>
-                                </div>
+                <div class="col-lg-4">
+                    <h6 class="fw-bold mb-4">Contact 📞</h6>
+                    <div class="d-flex flex-column gap-3">
+                        <div class="d-flex align-items-start gap-3">
+                            <i class="fa fa-globe text-primary mt-1"></i>
+                            <div>
+                                <span class="d-block fw-bold small">Availability</span>
+                                <span class="text-muted small">Online-based 🌐 (Remote Globally)</span>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-start gap-3">
+                            <i class="fa fa-phone-alt text-primary mt-1"></i>
+                            <div>
+                                <span class="d-block fw-bold small">Phone/WhatsApp</span>
+                                <span class="text-muted small">+880-1580314701</span><br>
+                                <span class="text-muted small">+880-1948484161</span>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-start gap-3">
+                            <i class="fa fa-envelope-open text-primary mt-1"></i>
+                            <div>
+                                <span class="d-block fw-bold small">Official Email</span>
+                                <a href="mailto:ahsanitLtd@gmail.com"
+                                    class="text-muted text-decoration-none small">ahsanitLtd@gmail.com</a>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-start gap-3">
+                            <i class="fa fa-clock text-primary mt-1"></i>
+                            <div>
+                                <span class="d-block fw-bold small">Response Time</span>
+                                <span class="text-muted small">Sat - Thu (10:00 AM - 10:00 PM)</span>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Footer -->
-    <footer class="footer py-5 border-top border-white-10">
-        <div class="container">
-            <div class="row g-5">
-                <div class="col-sm-6">
-                    <div class="about-company">
-                        <a class="navbar-brand fw-black tracking-tighter fs-3 mb-4 d-block" href="#">
-                            <span class="text-gold">AHSAN</span><span class="text-white">.IT</span>
-                        </a>
-                        <p class="text-slate-400 mb-4">
-                            AhsanIT was founded to bring enterprise grade stability to complex software systems. Led by
-                            a
-                            Senior Architect with over half a decade of hands on experience in Laravel and AWS, we
-                            specialize in making technology unbreakable.
-                        </p>
-                    </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="about-founder mb-4">
-                        <h4 class="fw-bold text-gold mb-1" style="font-size: 1.6rem; letter-spacing: -1px;">Ahsan
-                            Ahmed</h4>
-                        <p class="text-white fw-bold mb-3"
-                            style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px;">
-                            Founder & Full Stack Software Engineer, AhsanIT
-                        </p>
-
-                        <div class="d-flex flex-wrap  gap-3 mb-4">
-                            <span class="badge border border-info text-info px-3 py-2 rounded-pill fw-bold"
-                                style="background: rgba(37, 99, 235, 0.05); font-size: 0.85rem; letter-spacing: 0.5px;">
-                                <i class="fas fa-microchip me-2"></i> Enterprise Laravel Architecture
-                            </span>
-
-                            <span class="badge border border-success text-success px-3 py-2 rounded-pill fw-bold"
-                                style="background: rgba(34, 197, 94, 0.05); font-size: 0.85rem; letter-spacing: 0.5px;">
-                                <i class="fas fa-shield-check me-2"></i> Fintech & Secure API Engineering
-                            </span>
-
-                            <span class="badge border border-info text-info px-3 py-2 rounded-pill fw-bold"
-                                style="background: rgba(15, 23, 42, 0.05); font-size: 0.85rem; letter-spacing: 0.5px;">
-                                <i class="fas fa-cloud-bolt me-2"></i> Cloud Operations & DevOps
-                            </span>
+                <div class="col-lg-4">
+                    <div class="contact-box p-4 rounded-4 border bg-light dark-bg-adjust shadow-sm">
+                        <h6 class="fw-bold mb-3"><i class="fa fa-paper-plane text-primary me-2"></i>মেসেজ পাঠান</h6>
+                        <form id="localContactForm">
+                            <input type="text" id="userName"
+                                class="form-control form-control-sm rounded-pill px-3 mb-2 border-0 shadow-sm"
+                                placeholder="নাম" required>
+                            <input type="email" id="userEmail"
+                                class="form-control form-control-sm rounded-pill px-3 mb-2 border-0 shadow-sm"
+                                placeholder="ইমেইল" required>
+                            <textarea id="userMsg"
+                                class="form-control form-control-sm rounded-4 px-3 mb-3 border-0 shadow-sm" rows="3"
+                                placeholder="কিভাবে সাহায্য করতে পারি?" required></textarea>
+                            <button type="submit" class="btn btn-primary btn-sm w-100 rounded-pill fw-bold shadow">Save
+                                Message</button>
+                        </form>
+                        <div id="msgStatus" class="mt-2 small text-success fw-bold text-center d-none">সেভ করা হয়েছে! ✅
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="footer-bottom mt-5 pt-5 text-slate-500 small">
-                <div class="pt-4 border-top border-light">
-                    <div class="row align-items-center">
-                        <div class="col-md-6 text-md-start text-center mb-3 mb-md-0">
-                            <p class="small mb-0">
-                                &copy; <span id="date"></span> <strong>AhsanIT</strong>. All Rights Reserved.
-                            </p>
-                        </div>
-                        <div class="col-md-6 text-md-end text-center">
-                            <p class="small fw-bold mb-0" style="letter-spacing: 1px; font-size: 0.8rem;">
-                                ENGINEERED FOR STABILITY. BUILT FOR GROWTH.
-                            </p>
-                        </div>
-                    </div>
-                </div>
+            <div class="text-center pt-4 border-top">
+                <p class="text-muted small mb-0">
+                    © ২০২৬ <strong>AhsanIT</strong>. 
+                    Engineered with Clinical Precision.
+                </p>
             </div>
         </div>
     </footer>
 
-    <!-- Contact Modal -->
-    <div class="modal fade" id="contactModal" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-lg">
-            <div class="modal-content glass border-white-10 rounded-5 overflow-hidden">
-                <div class="modal-body p-0">
-                    <div class="row g-0">
-                        <div class="col-lg-5 bg-gold p-5 d-none d-lg-flex flex-column justify-content-between">
-                            <div>
-                                <h3 class="fw-black text-midnight mb-4">LET'S BUILD SOMETHING GREAT.</h3>
-                                <p class="text-midnight opacity-75">Tell us about your project requirements and we'll
-                                    get back to you within 24 hours.</p>
-                            </div>
-                            <div class="contact-info text-midnight">
-                                <div class="d-flex align-items-center gap-3 mb-3">
-                                    <i data-lucide="mail"></i> <span>hello@ahsan-it.com</span>
-                                </div>
-                                <div class="d-flex align-items-center gap-3">
-                                    <i data-lucide="map-pin"></i> <span>Global Remote</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-7 p-5">
-                            <div class="d-flex justify-content-between align-items-center mb-4">
-                                <h4 class="fw-black text-white mb-0">GET IN TOUCH</h4>
-                                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
-                                    aria-label="Close"></button>
-                            </div>
-                            <form id="contactForm">
-                                <div class="mb-3">
-                                    <label class="form-label small fw-bold text-slate-400">FULL NAME</label>
-                                    <input type="text" class="form-control bg-white-5 border-white-10 text-white"
-                                        required>
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label small fw-bold text-slate-400">EMAIL ADDRESS</label>
-                                    <input type="email" class="form-control bg-white-5 border-white-10 text-white"
-                                        required>
-                                </div>
-                                <div class="mb-4">
-                                    <label class="form-label small fw-bold text-slate-400">PROJECT DETAILS</label>
-                                    <textarea class="form-control bg-white-5 border-white-10 text-white" rows="4"
-                                        required></textarea>
-                                </div>
-                                <button type="submit" class="btn btn-primary w-full">
-                                    SEND MESSAGE <i data-lucide="send" class="ms-2"></i>
-                                </button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+
     <script src="script.js"></script>
-
-
-
-    <script>
-        document.getElementById("date").textContent = new Date().getFullYear();
-
-        // 2. Optimized Project Filter
-        function filterProjects(category, event) {
-            const cards = document.querySelectorAll('.project-card');
-            const btns = document.querySelectorAll('.filter-btn');
-            const loadMoreBtn = document.getElementById('loadMore');
-
-            btns.forEach(btn => btn.classList.remove('active'));
-            if (event) event.currentTarget.classList.add('active');
-
-            let count = 0;
-            let totalInCategory = 0;
-
-            cards.forEach(card => {
-                const isMatch = (category === 'all' || card.classList.contains(category));
-                if (isMatch) totalInCategory++;
-
-                if (isMatch && count < 3) {
-                    card.style.display = 'block';
-                    card.classList.add('visible');
-                    count++;
-                } else {
-                    card.style.display = 'none';
-                    card.classList.remove('visible');
-                }
-            });
-
-            if (loadMoreBtn) {
-                loadMoreBtn.style.display = (totalInCategory > 3) ? 'inline-block' : 'none';
-            }
-        }
-
-        // 3. Load More Logic
-        document.getElementById('loadMore')?.addEventListener('click', function () {
-            const activeBtn = document.querySelector('.filter-btn.active');
-            const category = activeBtn.getAttribute('onclick').match(/'([^']+)'/)[1];
-            const hiddenCards = Array.from(document.querySelectorAll('.project-card'))
-                .filter(c => (category === 'all' || c.classList.contains(category)) && c.style.display === 'none');
-
-            hiddenCards.slice(0, 3).forEach(card => {
-                card.style.display = 'block';
-                card.classList.add('visible');
-            });
-
-            if (hiddenCards.length <= 3) this.style.display = 'none';
-        });
-
-        // 4. Google Translate Init
-        function googleTranslateElementInit() {
-            new google.translate.TranslateElement({
-                pageLanguage: 'en',
-                includedLanguages: 'en,bn',
-                layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-                autoDisplay: false
-            }, 'google_translate_element');
-        }
-
-        window.addEventListener('load', () => filterProjects('all'));
-    </script>
-    <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 
 </html>
