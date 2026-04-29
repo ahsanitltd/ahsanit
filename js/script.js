@@ -36,7 +36,7 @@ function setupMegaMenu(menuSelector) {
 
 // --- 3. Hero Slider Function --- 
 function initMainSlider(container) {
-    const effects = ['slide', 'fade', 'coverflow', 'cards']; // 'cube', 'flip' অনেক সময় লুপে ইস্যু করে, তাই সেফ ইফেক্ট রাখা ভালো
+    const effects = ['slide', 'fade', 'coverflow', 'cards', 'cube', 'flip'];
     const randomEffect = effects[Math.floor(Math.random() * effects.length)];
 
     // নির্দিষ্ট কন্টেইনারের ভেতর স্লাইড সংখ্যা চেক করা (Global নয়)
@@ -47,7 +47,7 @@ function initMainSlider(container) {
         // লুপ মোড তখনই এনাবল হবে যখন স্লাইড সংখ্যা slidesPerView এর চেয়ে বেশি হবে
         loop: slidesCount >= 3,
         slidesPerView: 'auto',
-        speed: 1000,
+        speed: 3000,
 
         // স্লাইড কম থাকলে লুপ টিকিয়ে রাখার জন্য নিচের ৩টি প্যারামিটার গুরুত্বপূর্ণ
         loopedSlides: slidesCount,
@@ -55,7 +55,7 @@ function initMainSlider(container) {
         centeredSlides: true,
 
         autoplay: {
-            delay: 1000,
+            delay: 3000,
             disableOnInteraction: false
         },
         effect: randomEffect,
@@ -136,7 +136,7 @@ function setupCTAAlert(triggerSelector) {
         const isDark = $('body').hasClass('dark-mode');
         Swal.fire({
             title: 'আগ্রহ প্রকাশের জন্য ধন্যবাদ!!',
-            text: 'সরাসরি অফারটি পেতে বা ডেমো দেখতে দয়া করে আমাকে মেসেজ দিন',
+            text: 'ডেমো দেখতে দয়া করে আমাকে মেসেজ দিন',
             icon: 'success',
             confirmButtonText: '<i class="fa fa-paper-plane"></i> মেসেজ দিন',
             confirmButtonColor: '#2563eb',
@@ -144,7 +144,7 @@ function setupCTAAlert(triggerSelector) {
             background: isDark ? '#1e293b' : '#fff',
             color: isDark ? '#fff' : '#000'
         }).then((result) => {
-            if (result.isConfirmed) window.location.href = "https://fiverr.com/ahsan_july29";
+            if (result.isConfirmed) window.location.href = "https://wa.me/8801580314701";
         });
     });
 }

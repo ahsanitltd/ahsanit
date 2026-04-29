@@ -99,7 +99,7 @@ li {
     color: var(--primary) !important;
 }
 
-.btn { 
+.btn {
     padding: clamp(6px, 1.2vw, 10px) clamp(12px, 2.5vw, 24px) !important;
     font-size: clamp(0.75rem, 0.9vw + 0.4rem, 1rem) !important;
     border-radius: 50px !important;
@@ -161,11 +161,73 @@ li {
 }
 
 .hero-card {
-    background: var(--card-bg);
+    position: relative;
+    padding: 120px 20px;
+    /* প্যাডিং বাড়িয়ে কার্ডটি লম্বা করা হয়েছে */
     border-radius: 20px;
-    padding: clamp(15px, 4vw, 40px);
-    border: 1px solid var(--border-color);
-    box-shadow: var(--card-shadow);
+    overflow: hidden;
+    z-index: 1;
+    min-height: 500px;
+    /* হাইট ৫০০ পিক্সেল করা হয়েছে যেন জুম ইফেক্ট ভালো বোঝায় */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #000;
+}
+
+.hero-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('../projects/feature.webp');
+    background-size: 110%;
+    background-position: top center;
+    background-repeat: no-repeat;
+    z-index: -2;
+    transition: all 0.5s ease;
+}
+
+/* টেক্সটকে হাইলাইট করার জন্য ডার্ক ওভারলে */
+.hero-card::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.4));
+    z-index: -1;
+}
+
+/* মেইন টাইটেল জুম এবং স্পষ্ট করা */
+.hero-card h1 {
+    font-size: 3rem;
+    /* ফন্ট সাইজ বাড়ানো হয়েছে */
+    color: #fff !important;
+    text-shadow: 0 4px 15px rgba(0, 0, 0, 1);
+    font-weight: 800;
+}
+
+.hero-card p {
+    font-size: 1.2rem;
+    color: #eee !important;
+    max-width: 800px;
+}
+
+.hero-card h1,
+.hero-card p,
+.hero-card .old-price {
+    color: #ffffff !important;
+    text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero-card .text-muted {
+    color: #e0e0e0 !important;
+    /* মিউটেড টেক্সটকে হালকা গ্রে-হোয়াইট করা */
 }
 
 /* স্লাইডারের টেক্সট সবসময় সাদা থাকবে কিন্তু ব্যাকগ্রাউন্ডে ওভারলে থাকবে */
@@ -391,7 +453,7 @@ p {
     }
 }
 
-.slide-counter{
+.slide-counter {
     display: none;
 }
 
