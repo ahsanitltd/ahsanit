@@ -1,0 +1,237 @@
+/* ============================================================
+   AHSANIT CLINICAL RESPONSIVE SYSTEM (FULL REMAKE)
+   ============================================================ */
+
+/* 1. Global Scaling for Icons & Images */
+img.ss-img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    margin-bottom: 10px;
+}
+
+.fa,
+.fas,
+.fab {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+/* 2. Compact Tablet & Mobile (Under 992px) */
+@media (max-width: 991.98px) {
+    :root {
+        /* ফন্ট সাইজ এবং স্পেসিং কমানো */
+        font-size: 14px;
+    }
+
+    /* Container & Section Spacing */
+    .container {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .content-section {
+        padding: 15px !important;
+        margin-bottom: 15px !important;
+        border-radius: 12px !important;
+    }
+
+    /* Hero / Header Scaling */
+    .hero-card {
+        padding: 25px 15px !important;
+        margin-bottom: 20px !important;
+    }
+
+    .hero-card h1 {
+        font-size: 1.6rem !important;
+        line-height: 1.2;
+    }
+
+    .hero-card .badge {
+        font-size: 0.7rem;
+        padding: 4px 10px;
+    }
+
+    /* Price Tag Scaling */
+    .price-tag {
+        font-size: 1.3rem !important;
+        margin: 10px 0 !important;
+    }
+
+    .old-price {
+        font-size: 1rem !important;
+    }
+
+    /* Button & Icon Scaling */
+    .btn {
+        /* clamp(মিনিমাম, প্রিফারড, ম্যাক্সিমাম) */
+        padding: clamp(8px, 1.5vw, 12px) clamp(16px, 3vw, 28px) !important;
+        font-size: clamp(0.85rem, 1vw + 0.5rem, 1.1rem) !important;
+        border-radius: 50px !important;
+    }
+
+    .btn i {
+        font-size: 0.85rem;
+    }
+
+    /* Logo Scaling */
+    .navbar-brand {
+        font-size: 1.3rem !important;
+    }
+
+    /* Login Access Box (Grid fix for mobile) */
+    .login-access-box {
+        padding: 12px !important;
+        margin-bottom: 10px !important;
+    }
+
+    .login-access-box h6 {
+        font-size: 0.9rem !important;
+    }
+
+    .login-access-box code {
+        font-size: 0.75rem !important;
+    }
+
+    /* Sidebar Fix */
+    .sticky-sidebar {
+        position: static !important;
+    }
+}
+
+@media (max-width: 575.98px) {
+
+    /* ১. গ্লোবাল স্পেসিং কমানো */
+    .content-section {
+        padding: 12px !important;
+        /* একদম মিনিমাম প্যাডিং */
+        margin-bottom: 12px !important;
+    }
+
+    .hero-card {
+        padding: 20px 12px !important;
+    }
+
+    /* ২. ফন্ট সাইজ আরও রিডিউস করা */
+    h1 {
+        font-size: 1.25rem !important;
+        /* আরও ছোট এবং শার্প */
+        line-height: 1.2 !important;
+    }
+
+    .price-tag {
+        font-size: 1.5rem !important;
+        margin-bottom: 12px !important;
+    }
+
+    .new-price {
+        font-size: 1.8rem !important;
+    }
+
+    /* ৩. বাটন গ্রুপ আরও কম্প্যাক্ট করা */
+    .d-flex.gap-3 {
+        gap: 8px !important;
+        /* বাটনের মাঝখানের গ্যাপ কমানো */
+    }
+
+    .btn {
+        width: 100% !important;
+        /* মোবাইলে ফুল উইডথ স্ট্যাকিং */
+        padding: 10px 15px !important;
+        /* স্লিম প্যাডিং */
+        font-size: 0.85rem !important;
+    }
+
+    /* ৪. মেগা মেনু এবং অন্যান্য বক্স স্লিম করা */
+    .login-access-box {
+        padding: 8px 12px !important;
+    }
+
+    .tech-badge {
+        font-size: 0.65rem !important;
+        padding: 2px 6px !important;
+    }
+
+    /* ৫. ইমেজ ও ক্যাপশন সাইজ */
+    .ss-caption {
+        font-size: 0.75rem !important;
+        padding: 8px !important;
+    }
+}
+
+
+/* --- RESPONSIVE ENGINE (The "Guchano" Part) --- */
+@media (max-width: 991.98px) {
+    .container {
+        padding: 0 15px;
+    }
+
+    .hero-card {
+        text-align: center;
+    }
+
+    .sticky-sidebar {
+        position: static !important;
+        margin-top: 20px;
+    }
+
+    /* মেগা মেনু মোবাইল ফিক্স */
+    .mega-dropdown-box {
+        position: relative !important;
+        width: 100% !important;
+        padding: 15px !important;
+        box-shadow: none !important;
+    }
+}
+
+@media (max-width: 575.98px) {
+
+    /* অতিরিক্ত স্পেস রিমুভাল */
+    .row {
+        --bs-gutter-x: 1rem;
+    }
+
+    .content-section {
+        padding: 15px !important;
+        border-radius: 12px;
+    }
+
+    /* বাটনগুলোকে স্মার্টলি সাজানো */
+    .d-flex.gap-3 {
+        flex-direction: column !important;
+        gap: 10px !important;
+    }
+
+    .btn {
+        width: 100% !important;
+        padding: 12px !important;
+        font-size: 0.9rem !important;
+    }
+
+    /* টাইপোগ্রাফি ফিনিশিং */
+    h1 {
+        line-height: 1.2 !important;
+    }
+
+    .price-tag {
+        justify-content: center;
+    }
+
+    /* লগইন বক্স এক্সেস */
+    .login-access-box {
+        padding: 12px !important;
+        margin-bottom: 10px !important;
+    }
+
+    .tech-badge {
+        font-size: 0.7rem !important;
+        padding: 3px 8px !important;
+    }
+}
+
+/* বড় স্ক্রিনে যাতে ডিজাইন ফেটে না যায় */
+@media (min-width: 1400px) {
+    .container {
+        max-width: 1200px !important;
+    }
+}

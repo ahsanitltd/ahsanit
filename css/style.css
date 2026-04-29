@@ -1,29 +1,32 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Roboto:wght@400;500&display=swap');
-
-/* --- External Libraries --- */
-@import url('https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css');
+/* Font Awesome */
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
-@import url('https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css');
+
+/* Bootstrap 5 */
+@import url('bootstrap.css');
+
+/* Google Fonts (লোকাল ফাইল থাকলে নিচের মতো, না থাকলে শুধু ফন্ট ইম্পোর্ট রাখুন) */
+@import url('poppins.css');
+
+/* Swiper Bundle */
+@import url('swiper-bundle.css');
 
 
 :root {
     --primary: #2563eb;
     --dark-navy: #0f172a;
     --offer-red: #ef4444;
-
     --heading-font: 'Poppins', sans-serif;
     --body-font: 'Roboto', sans-serif;
-
-    /* Light Mode Variables */
     --bg-body: #ffffff;
     --text-main: #1e293b;
     --text-muted: #64748b;
-    /* নতুন ভেরিয়েবল */
     --nav-bg: #ffffff;
     --card-bg: #f8fafc;
     --border-color: rgba(0, 0, 0, 0.1);
-    /* ডাইনামিক বর্ডার */
     --input-bg: rgba(255, 255, 255, 0.9);
+    --success: #10b981;
+    --dark: #0f172a;
+    --card-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
 }
 
 /* Dark Mode Overrides */
@@ -37,6 +40,7 @@ body.dark-mode {
     --border-color: rgba(255, 255, 255, 0.1);
     /* ডার্ক মোডে হালকা বর্ডার */
     --input-bg: rgba(30, 41, 59, 0.8);
+    line-height: 1.5;
 }
 
 /* Base Setup */
@@ -48,6 +52,7 @@ body {
     margin: 0;
     padding: 0;
     overflow-x: hidden;
+    line-height: 1.5;
 }
 
 /* টেক্সট কালার ফিক্স */
@@ -94,6 +99,23 @@ li {
     color: var(--primary) !important;
 }
 
+.btn { 
+    padding: clamp(6px, 1.2vw, 10px) clamp(12px, 2.5vw, 24px) !important;
+    font-size: clamp(0.75rem, 0.9vw + 0.4rem, 1rem) !important;
+    border-radius: 50px !important;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-weight: 500;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    white-space: nowrap;
+}
+
+.btn i {
+    font-size: 0.9em !important;
+}
+
 /* Mega Menu */
 .mega-dropdown-box {
     width: 100vw;
@@ -132,10 +154,18 @@ li {
 
 /* --- Hero Slider --- */
 .hero-slider {
-    height: 85vh;
+    height: clamp(450px, 80vh, 850px);
     width: 100%;
     overflow: hidden;
     position: relative;
+}
+
+.hero-card {
+    background: var(--card-bg);
+    border-radius: 20px;
+    padding: clamp(15px, 4vw, 40px);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--card-shadow);
 }
 
 /* স্লাইডারের টেক্সট সবসময় সাদা থাকবে কিন্তু ব্যাকগ্রাউন্ডে ওভারলে থাকবে */
@@ -179,6 +209,66 @@ li {
     inset: 0;
     background: linear-gradient(75deg, rgba(15, 23, 42, 0.7) 35%, transparent);
     z-index: 1;
+}
+
+h1 {
+    font-size: clamp(1.4rem, 5vw, 2.8rem);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+}
+
+.ss-img {
+    width: 100%;
+    border-radius: 8px;
+    display: block;
+}
+
+/* --- Navigation Fix --- */
+.navbar {
+    background: var(--card-bg) !important;
+    border-bottom: 1px solid var(--border-color);
+    padding: 10px 0;
+}
+
+.mega-dropdown-box {
+    width: 100vw;
+    left: 0;
+    position: absolute;
+    background: var(--card-bg);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    display: none;
+    padding: 30px;
+    border-bottom: 4px solid var(--primary);
+}
+
+.mega-menu:hover .mega-dropdown-box {
+    display: block;
+}
+
+.price-tag {
+    font-size: clamp(1.6rem, 5vw, 3rem);
+    font-weight: 800;
+}
+
+p {
+    font-size: clamp(0.85rem, 2vw, 1rem);
+}
+
+/* --- Mobile-First Compact Grid --- */
+.content-section {
+    background: var(--card-bg);
+    border-radius: 16px;
+    padding: clamp(15px, 3vw, 35px);
+    /* মোবাইলে প্যাডিং অটো কমবে */
+    margin-bottom: clamp(15px, 2vw, 30px);
+    border: 1px solid var(--border-color);
+}
+
+.ss-container {
+    border-radius: 12px;
+    background: #f1f5f9;
+    padding: 8px;
+    border: 1px solid var(--border-color);
 }
 
 .price-tag {
@@ -301,20 +391,9 @@ li {
     }
 }
 
-/* Responsive */
-@media (max-width: 991px) {
-    .mega-dropdown-box {
-        width: 100%;
-        position: relative;
-        padding: 20px;
-        border-radius: 10px;
-    }
-
-    .hero-slider {
-        height: 75vh;
-    }
-
-    .new-price {
-        font-size: 2.5rem;
-    }
+.slide-counter{
+    display: none;
 }
+
+
+@import url('responsive.css');

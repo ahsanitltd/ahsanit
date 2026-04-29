@@ -34,22 +34,40 @@ function setupMegaMenu(menuSelector) {
     });
 }
 
-// --- 3. Hero Slider Function ---
+// --- 3. Hero Slider Function --- 
 function initMainSlider(container) {
-    const effects = ['slide', 'fade', 'cube', 'flip', 'coverflow', 'cards', 'creative'];
+    const effects = ['slide', 'fade', 'coverflow', 'cards']; // 'cube', 'flip' অনেক সময় লুপে ইস্যু করে, তাই সেফ ইফেক্ট রাখা ভালো
     const randomEffect = effects[Math.floor(Math.random() * effects.length)];
 
+    // নির্দিষ্ট কন্টেইনারের ভেতর স্লাইড সংখ্যা চেক করা (Global নয়)
+    const slides = document.querySelectorAll(`${container} .swiper-slide`);
+    const slidesCount = slides.length;
+
     return new Swiper(container, {
-        loop: true,
+        // লুপ মোড তখনই এনাবল হবে যখন স্লাইড সংখ্যা slidesPerView এর চেয়ে বেশি হবে
+        loop: slidesCount >= 3,
+        slidesPerView: 'auto',
         speed: 1000,
-        autoplay: { delay: 500, disableOnInteraction: false },
+
+        // স্লাইড কম থাকলে লুপ টিকিয়ে রাখার জন্য নিচের ৩টি প্যারামিটার গুরুত্বপূর্ণ
+        loopedSlides: slidesCount,
+        loopPreventsSliding: false,
+        centeredSlides: true,
+
+        autoplay: {
+            delay: 1000,
+            disableOnInteraction: false
+        },
         effect: randomEffect,
         pagination: { el: '.swiper-pagination', clickable: true },
         on: {
             slideChangeTransitionStart: function () {
                 const anims = ['animate__fadeInUp', 'animate__fadeInLeft', 'animate__zoomIn'];
                 const rand = anims[Math.floor(Math.random() * anims.length)];
-                $('.slide-content h1').removeClass(anims.join(' ')).addClass('animate__animated ' + rand);
+                // Active স্লাইডকেই শুধু অ্যানিমেট করা উচিত
+                $(this.el).find('.slide-content h1')
+                    .removeClass(anims.join(' '))
+                    .addClass('animate__animated ' + rand);
             }
         }
     });
