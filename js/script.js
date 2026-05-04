@@ -73,23 +73,33 @@ function initMainSlider(container) {
     });
 }
 
-// --- 4. Isotope Filter Function ---
 function setupPortfolioFilter(gridSelector, buttonClass, noDataId) {
     const $grid = $(gridSelector).isotope({
         itemSelector: '.grid-item',
         layoutMode: 'fitRows'
     });
 
+    // ফিল্টার ইভেন্ট
     $(buttonClass).on('click', function () {
         const filterValue = $(this).attr('data-filter');
-        $grid.isotope({ filter: filterValue });
 
-        $grid.on('arrangeComplete', function (event, filteredItems) {
-            filteredItems.length === 0 ? $(noDataId).removeClass('d-none') : $(noDataId).addClass('d-none');
-        });
-
+        // বাটন স্টেট আপডেট
         $(buttonClass).removeClass('btn-primary active').addClass('btn-outline-primary');
         $(this).addClass('btn-primary active').removeClass('btn-outline-primary');
+
+        // ফিল্টারিং শুরু
+        $grid.isotope({ filter: filterValue });
+    });
+
+    // ফিল্টারিং শেষ হলে চেক করুন কোনো আইটেম আছে কি না
+    $grid.on('arrangeComplete', function (event, filteredItems) {
+        if (filteredItems.length === 0) {
+            $(noDataId).fadeIn().removeClass('d-none');
+            // গ্রিডের হাইট ম্যানুয়ালি ঠিক রাখা যাতে নিচের সেকশন লাফ না দেয়
+            $(gridSelector).css('height', '400px');
+        } else {
+            $(noDataId).addClass('d-none');
+        }
     });
 }
 

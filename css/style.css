@@ -315,7 +315,13 @@ p {
     font-size: clamp(0.85rem, 2vw, 1rem);
 }
 
-/* --- Mobile-First Compact Grid --- */
+/* আপনার style.css এ যোগ করুন */
+.grid {
+    min-height: 400px;
+    /* আপনার কার্ডের উচ্চতা অনুযায়ী এটি সেট করুন */
+    transition: height 0.4s ease-in-out;
+}
+
 .content-section {
     background: var(--card-bg);
     border-radius: 16px;
@@ -541,7 +547,7 @@ p {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
-.view-all-overlay span{
+.view-all-overlay span {
     position: absolute;
     inset: 0;
     background: rgba(15, 23, 42, 0.7);
@@ -731,7 +737,7 @@ p {
     border-radius: 12px;
     /* বর্ডার রেডিয়াস একটু কমানো হয়েছে প্রিমিয়াম লুকের জন্য */
     font-size: 11px;
-    font-weight: 800; 
+    font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 1.5px;
     transition: all 0.3s ease;
