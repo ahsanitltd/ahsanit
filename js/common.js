@@ -60,7 +60,7 @@ const siteComponents = {
     header: `
     <nav class="navbar navbar-expand-lg sticky-top bg-white border-bottom shadow-sm">
         <div class="container">
-            <a class="navbar-brand fw-bold" href="/">
+            <a class="navbar-brand fw-bold bg-white" href="/">
                 <img src="../images/logo.png" alt="Ahsan IT" class="" width="100px" />
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#ahsanNav">
@@ -71,9 +71,6 @@ const siteComponents = {
                     <li class="nav-item"><a class="nav-link fw-bold" href="#marketplace">Php Scripts</a></li>
                     <li class="nav-item"><a class="nav-link fw-bold" href="#footer">Contact us</a></li>
                 </ul>
-                <div class="d-flex gap-2">
-                    <button id="themeToggle" class="btn btn-light rounded-circle border shadow-sm"><i class="fa fa-moon"></i></button>
-                </div>
             </div>
         </div>
     </nav>`,
@@ -104,6 +101,10 @@ const siteComponents = {
                         <div class="d-flex gap-2">
                             <a href="https://www.facebook.com/ahsanit.net" class="btn btn-sm btn-light rounded-circle shadow-sm"><i class="fab fa-facebook-f text-primary"></i></a>
                             <a href="https://wa.me/8801580314701" class="btn btn-sm btn-light rounded-circle shadow-sm"><i class="fab fa-whatsapp text-success"></i></a>
+                            <div class="d-flex gap-2">
+                                <button id="themeToggle" class="btn btn-light rounded-circle border shadow-sm"><i
+                                        class="fa fa-moon"></i></button>
+                            </div>
                         </div>
                     </div>
                 </div>

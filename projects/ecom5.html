@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="shortcut icon" href="../images/logo.png" alt="Ecommerce" />
+    <link rel="icon" href="data:,">
+
+    <title>Ecom5 - OnlineBaby Nursery & Baby Shop</title>
+
+    <!-- UI Frameworks -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap">
+
+    <link rel="stylesheet" href="../css/style.css">
+
+    <style>
+        :root {
+            --brand-color: #00a6a6;
+        }
+
+        .hero-card::before {
+            background-image: url('/projects/images/ecom5/1.webp');
+        }
+
+        .tour-item {
+            position: relative;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .tour-item:hover {
+            transform: translateY(-3px);
+            z-index: 10;
+        }
+
+        .tour-tag {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            color: white;
+            padding: 2px 10px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        .small-tag {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            font-size: 9px;
+            padding: 1px 6px;
+            border-radius: 4px;
+        }
+
+        .view-all-overlay {
+            backdrop-filter: blur(2px);
+        }
+
+        .badge-tech {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            color: #495057;
+            padding: 5px 12px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            display: inline-block;
+            margin: 2px;
+        }
+
+        .btn-brand {
+            background-color: var(--brand-color);
+            color: white;
+        }
+
+        .btn-brand:hover {
+            background-color: #008a8a;
+            color: white;
+        }
+
+        .text-brand {
+            color: var(--brand-color) !important;
+        }
+
+        .border-brand {
+            border-color: var(--brand-color) !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container pb-5">
+        <!-- Hero Section -->
+        <div class="hero-card text-center mb-5">
+            <h1 class="fw-bold">Baby Shop UI Snapshot</h1>
+            <p class="text-muted">Multi-Category Baby Nursery & Toy E-commerce Built with Laravel</p>
+
+            <div class="d-flex justify-content-center gap-3">
+                <a href="#details" class="btn btn-brand px-3 rounded-pill shadow text-white border-0">Description</a>
+                <a href="https://ecom5.ahsanit.net/" target="_blank"
+                    class="btn btn-outline-light px-3 rounded-pill">Live Preview</a>
+            </div>
+        </div>
+
+        <div class="row" id="details">
+            <div class="col-lg-8">
+                <!-- System Access Box -->
+                <div class="content-section shadow-sm border-0 mb-4 rounded-4 bg-white p-4">
+                    <h4 class="section-title h5 fw-bold mb-3"><i class="fa-solid fa-key me-2 text-brand"></i>System
+                        Access (Demo)</h4>
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <div class="login-access-box border-start border-4 border-brand p-3 rounded-end shadow-sm"
+                                style="background:#f0fcfc;">
+                                <h6 class="fw-bold text-brand mb-2"><i class="fa fa-user-shield me-2"></i>Admin
+                                    Dashboard</h6>
+                                <p class="small mb-1 text-muted">URL: <code class="bg-white px-2">/admin/login</code>
+                                </p>
+                                <p class="small mb-0 text-muted">User: <code class="bg-white px-2">admin@demo.com</code>
+                                    | <code class="bg-white px-2">123456</code></p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="login-access-box border-start border-4 border-dark p-3 rounded-end shadow-sm"
+                                style="background:#f8f9fa;">
+                                <h6 class="fw-bold text-dark mb-2"><i class="fa fa-shopping-cart me-2"></i>Customer
+                                    Access</h6>
+                                <p class="small mb-1 text-muted">URL: <code class="bg-white px-2">/user/login</code>
+                                </p>
+                                <p class="small mb-0 text-muted">User: <code class="bg-white px-2">01999999999</code> |
+                                    <code class="bg-white px-2">123456</code>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Features Section -->
+                <div class="content-section shadow-sm border-0 mb-4 rounded-4 bg-white p-4">
+                    <div class="border-start border-brand border-4 ps-3 mb-4">
+                        <h4 class="section-title mb-1 fw-bold text-dark">Core Architecture Features</h4>
+                        <p class="text-muted small mb-0 text-uppercase">Nursery & Retail Management System</p>
+                    </div>
+
+                    <p class="text-secondary mb-4" style="line-height: 1.8; font-size: 0.95rem;">
+                        এটি একটি হাই-পারফরম্যান্স ই-কমার্স সলিউশন যাতে রয়েছে <strong>Advanced Coupon System</strong>,
+                        <strong>Flash Deals</strong> এবং <strong>Product Comparison</strong> এর মতো আধুনিক ফিচার। বেবি
+                        প্রোডাক্টের জন্য বিশেষায়িত এই সিস্টেমে ইউজার এক্সপেরিয়েন্সকে সর্বোচ্চ গুরুত্ব দেওয়া হয়েছে।
+                    </p>
+
+                    <div class="row g-3">
+                        <div class="col-sm-6">
+                            <div class="d-flex align-items-center gap-2 py-2 border-bottom border-light">
+                                <i class="fa-solid fa-circle-check text-brand"></i>
+                                <span class="fw-medium small text-dark">Flash Deals with Countdown Timer</span>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="d-flex align-items-center gap-2 py-2 border-bottom border-light">
+                                <i class="fa-solid fa-circle-check text-brand"></i>
+                                <span class="fw-medium small text-dark">Side-by-Side Product Comparison</span>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="d-flex align-items-center gap-2 py-2 border-bottom border-light">
+                                <i class="fa-solid fa-circle-check text-brand"></i>
+                                <span class="fw-medium small text-dark">Dynamic Mega Menu & Category Filters</span>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="d-flex align-items-center gap-2 py-2 border-bottom border-light">
+                                <i class="fa-solid fa-circle-check text-brand"></i>
+                                <span class="fw-medium small text-dark">Multi-Currency & Tax Management</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gallery Tour Grid -->
+                <div class="system-tour-grid p-3 mb-4 p-md-4 rounded-4 shadow-sm bg-white border">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <h5 class="fw-bold mb-0 text-dark">UI Walkthrough</h5>
+                        <span class="badge btn-brand rounded-pill px-3 py-2 small">Nursery Specialized UI</span>
+                    </div>
+
+                    <div class="row g-3">
+                        <div class="col-lg-7">
+                            <a data-fslightbox="ecom5-tour" href="/projects/images/ecom5/1.webp"
+                                class="tour-item main-item rounded-3 overflow-hidden d-block border">
+                                <img src="/projects/images/ecom5/1.webp" class="img-fluid w-100"
+                                    style="height: 350px; object-fit: cover;">
+                                <div class="tour-tag btn-brand shadow">Modern Homepage</div>
+                            </a>
+                        </div>
+                        <div class="col-lg-5">
+                            <div class="row g-2">
+                                <div class="col-6">
+                                    <a data-fslightbox="ecom5-tour" href="/projects/images/ecom5/8.webp"
+                                        class="tour-item sub-item rounded-2 overflow-hidden d-block border">
+                                        <img src="/projects/images/ecom5/8.webp" class="img-fluid w-100"
+                                            style="height: 170px; object-fit: cover; object-position: top;">
+                                        <div class="small-tag">Product Compare</div>
+                                    </a>
+                                </div>
+                                <div class="col-6">
+                                    <a data-fslightbox="ecom5-tour" href="/projects/images/ecom5/9.webp"
+                                        class="tour-item sub-item rounded-2 overflow-hidden d-block border">
+                                        <img src="/projects/images/ecom5/9.webp" class="img-fluid w-100"
+                                            style="height: 170px; object-fit: cover;">
+                                        <div class="small-tag">Admin Dashboard</div>
+                                    </a>
+                                </div>
+                                <div class="col-6">
+                                    <a data-fslightbox="ecom5-tour" href="/projects/images/ecom5/11.webp"
+                                        class="tour-item sub-item rounded-2 overflow-hidden d-block border">
+                                        <img src="/projects/images/ecom5/11.webp" class="img-fluid w-100"
+                                            style="height: 170px; object-fit: cover;">
+                                        <div class="small-tag">Coupon System</div>
+                                    </a>
+                                </div>
+                                <div class="col-6">
+                                    <a data-fslightbox="ecom5-tour" href="/projects/images/ecom5/4.webp"
+                                        class="tour-item more-card rounded-2 overflow-hidden d-block position-relative border"
+                                        style="height: 170px;">
+                                        <img src="/projects/images/ecom5/4.webp"
+                                            class="img-fluid w-100 h-100 object-fit-cover">
+                                        <div
+                                            class="view-all-overlay d-flex align-items-center justify-content-center position-absolute top-0 start-0 w-100 h-100 bg-dark bg-opacity-60 text-white">
+                                            <div class="text-center">
+                                                <i class="fa fa-th-large mb-1"></i>
+                                                <span class="fw-bold d-block small">More Screens</span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Hidden for Lightbox -->
+                    <div class="d-none">
+                        <a data-fslightbox="ecom5-tour" href="/projects/images/ecom5/2.webp"></a>
+                        <a data-fslightbox="ecom5-tour" href="/projects/images/ecom5/3.webp"></a>
+                        <a data-fslightbox="ecom5-tour" href="/projects/images/ecom5/5.webp"></a>
+                        <a data-fslightbox="ecom5-tour" href="/projects/images/ecom5/6.webp"></a>
+                        <a data-fslightbox="ecom5-tour" href="/projects/images/ecom5/7.webp"></a>
+                        <a data-fslightbox="ecom5-tour" href="/projects/images/ecom5/10.webp"></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sidebar -->
+            <div class="col-lg-4" id="buy">
+                <div class="sticky-sidebar">
+                    <div class="premium-node sidebar-card mb-4 p-4 bg-white shadow-sm rounded-4 border">
+                        <div class="badge btn-brand mb-2">Architect's Choice</div>
+                        <h5 class="fw-bold">Full Source Code</h5>
+                        <div class="d-flex align-items-center gap-2 my-3">
+                            <span class="fs-3 fw-bold text-dark">৳2,990</span>
+                            <span class="text-muted text-decoration-line-through small">৳10,000</span>
+                        </div>
+                        <div class="action-stack d-grid gap-2">
+                            <a href="https://wa.me/YOUR_NUMBER" class="btn btn-dark py-2 fw-bold"><i
+                                    class="fab fa-whatsapp me-2"></i>Buy via WhatsApp</a>
+                            <a href="https://ecom5.ahsanit.net/" target="_blank"
+                                class="btn btn-outline-dark border-brand text-brand py-2">Live
+                                Preview</a>
+                        </div>
+                        <div class="mt-4 border-top pt-3">
+                            <p class="text-uppercase text-muted fw-bold x-small mb-2">Technical Stack</p>
+                            <div class="d-flex flex-wrap">
+                                <span class="badge-tech">Laravel 9.x / 10.x</span>
+                                <span class="badge-tech">MySQL 8.0</span>
+                                <span class="badge-tech">REST API</span>
+                                <span class="badge-tech">FCM Notification</span>
+                                <span class="badge-tech">mPDF</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fslightbox/3.0.9/index.min.js"></script>
+
+    <script src="../js/script.js"></script>
+    <script src="../js/common.js"></script>
+</body>
+
+</html>

@@ -27,7 +27,11 @@
     --success: #10b981;
     --dark: #0f172a;
     --card-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+    --primary-blue: #2563eb;
+    --royal-gold: #c5a059;
+    --slate-dark: #0f172a;
 }
+
 
 /* Dark Mode Overrides */
 body.dark-mode {
@@ -77,12 +81,11 @@ li {
 /* --- Navbar --- */
 .navbar {
     background: var(--nav-bg) !important;
-    padding: 15px 0;
     border-bottom: 1px solid var(--border-color);
-    /* ভেরিয়েবল ব্যবহার করা হয়েছে */
     position: sticky;
     top: 0;
     z-index: 1100;
+    padding: 10px 0;
 }
 
 .navbar-brand {
@@ -100,16 +103,27 @@ li {
 }
 
 .btn {
-    padding: clamp(6px, 1.2vw, 10px) clamp(12px, 2.5vw, 24px) !important;
-    font-size: clamp(0.75rem, 0.9vw + 0.4rem, 1rem) !important;
+    padding: clamp(6px, 1vw, 10px) clamp(12px, 2vw, 24px) !important;
+    font-size: clamp(12px, 1.2vw, 14px) !important;
     border-radius: 50px !important;
+    font-weight: 600 !important;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.15);
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
-    font-weight: 500;
-    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-    white-space: nowrap;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.25);
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
 }
 
 .btn i {
@@ -179,27 +193,18 @@ li {
 .hero-card::before {
     content: "";
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image: url('../projects/feature.webp');
-    background-size: 110%;
-    background-position: top center;
-    background-repeat: no-repeat;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
     z-index: -2;
-    transition: all 0.5s ease;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* টেক্সটকে হাইলাইট করার জন্য ডার্ক ওভারলে */
 .hero-card::after {
     content: "";
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.4));
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.4) 100%);
     z-index: -1;
 }
 
@@ -274,23 +279,13 @@ li {
 }
 
 h1 {
-    font-size: clamp(1.4rem, 5vw, 2.8rem);
+    font-size: clamp(1.6rem, 5vw, 3rem);
     font-weight: 800;
     letter-spacing: -0.02em;
+    line-height: 1.2;
 }
 
-.ss-img {
-    width: 100%;
-    border-radius: 8px;
-    display: block;
-}
 
-/* --- Navigation Fix --- */
-.navbar {
-    background: var(--card-bg) !important;
-    border-bottom: 1px solid var(--border-color);
-    padding: 10px 0;
-}
 
 .mega-dropdown-box {
     width: 100vw;
@@ -310,6 +305,10 @@ h1 {
 .price-tag {
     font-size: clamp(1.6rem, 5vw, 3rem);
     font-weight: 800;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 p {
@@ -333,13 +332,6 @@ p {
     border: 1px solid var(--border-color);
 }
 
-.price-tag {
-    font-size: 1.5rem;
-    margin-bottom: 20px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
 
 .slide-content {
     position: relative;
@@ -380,7 +372,6 @@ p {
 }
 
 /* --- Card Systems --- */
-.product-card,
 .review-card {
     background: var(--card-bg) !important;
     color: var(--text-main) !important;
@@ -396,7 +387,6 @@ p {
     text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
-.product-card:hover,
 .review-card:hover {
     transform: translateY(-8px);
     border-color: var(--primary) !important;
@@ -431,7 +421,6 @@ p {
     color: var(--text-muted);
 }
 
-/* Pagination Style */
 .swiper-pagination-bullet {
     background: var(--text-muted);
 }
@@ -456,6 +445,437 @@ p {
 .slide-counter {
     display: none;
 }
+
+
+
+
+
+
+/* 2. SYSTEM MODULE CARDS & SNAPSHOTS */
+.module-card {
+    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s ease;
+    background: var(--card-bg);
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.module-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12) !important;
+}
+
+.ss-container {
+    background: #f1f5f9;
+    border-bottom: 1px solid var(--border-color);
+    overflow: hidden;
+}
+
+.ss-img {
+    width: 100%;
+    height: 220px;
+    /* ফিক্সড হাইট দিলে গ্রিড সমান থাকে */
+    object-fit: cover;
+    object-position: top;
+    border-radius: 8px;
+    display: block;
+    transition: object-position 2.5s cubic-bezier(0.45, 0.05, 0.55, 0.95);
+
+}
+
+.module-card:hover .ss-img {
+    object-position: bottom;
+    /* মাউস রাখলে ইমেজের নিচে পর্যন্ত স্ক্রল হবে */
+}
+
+/* 3. SYSTEM TOUR GRID (POLISHED) */
+.system-tour-grid {
+    background: #fdfdfd;
+    border-radius: 20px;
+    border: 1px solid #f1f5f9;
+    padding: 2rem;
+}
+
+.tour-item {
+    display: block;
+    position: relative;
+    border-radius: 14px;
+    overflow: hidden;
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    text-decoration: none;
+}
+
+.tour-item img {
+    width: 100%;
+    object-fit: cover;
+    object-position: top;
+    display: block;
+}
+
+.main-item img {
+    height: 350px;
+}
+
+.sub-item img {
+    height: 115px;
+}
+
+.tour-item:hover {
+    transform: translateY(-5px) scale(1.01);
+    box-shadow: 0 15px 30px rgba(15, 23, 42, 0.1);
+    border-color: var(--primary-blue);
+}
+
+.tour-tag {
+    position: absolute;
+    bottom: 12px;
+    left: 12px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(8px);
+    padding: 5px 14px;
+    border-radius: 50px;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--slate-dark);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.view-all-overlay span{
+    position: absolute;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.7);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 14px;
+    backdrop-filter: blur(4px);
+}
+
+/* 4. MACBOOK- DARK GLASS LIGHTBOX (Refined) */
+.fslightbox-container {
+    background: rgba(15, 23, 42, 0.8) !important;
+    backdrop-filter: blur(15px) saturate(180%) !important;
+    /* গ্লাস ইফেক্ট */
+    -webkit-backdrop-filter: blur(15px) saturate(180%) !important;
+}
+
+.fslightbox-source {
+    width: 70vw !important;
+    /* MacBook Preview Capture Ratio */
+    height: auto !important;
+    max-height: 82vh !important;
+    margin: auto !important;
+    border-radius: 14px !important;
+    border: 1px solid rgba(255, 255, 255, 0.18) !important;
+    box-shadow: 0 50px 100px rgba(0, 0, 0, 0.7) !important;
+}
+
+/* 5. VISIBLE HIGH-CONTRAST UI BUTTONS */
+.fslightbox-toolbar-button,
+.fslightbox-slide-btn {
+    background: rgba(255, 255, 255, 0.12) !important;
+    backdrop-filter: blur(15px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.25) !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.fslightbox-toolbar-button svg,
+.fslightbox-slide-btn svg {
+    fill: #ffffff !important;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.4));
+}
+
+.fslightbox-toolbar-button:hover,
+.fslightbox-slide-btn:hover {
+    background: rgba(255, 255, 255, 0.25) !important;
+    transform: scale(1.1);
+    border-color: #ffffff !important;
+}
+
+.fslightbox-slide-number-container {
+    top: 25px !important;
+    background: rgba(255, 255, 255, 0.15) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    color: #ffffff !important;
+    padding: 6px 20px !important;
+    border-radius: 40px !important;
+    font-weight: 700 !important;
+    letter-spacing: 1px;
+}
+
+.fslightbox-slide-btn-container-next {
+    right: 50px !important;
+}
+
+.fslightbox-slide-btn-container-previous {
+    left: 50px !important;
+}
+
+/* Utility */
+.x-small {
+    font-size: 0.8rem;
+    line-height: 1.4;
+}
+
+.fslightbox-fade-in {
+    background: transparent !important;
+}
+
+/* --- UPGRADED PREMIUM NODE DESIGN --- */
+.premium-node {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    /* গ্রিড অ্যালাইনমেন্ট ঠিক রাখার জন্য */
+    text-decoration: none !important;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    padding: 35px 25px;
+    position: relative;
+    transition: all 0.5s cubic-bezier(0.2, 1, 0.3, 1);
+    text-align: center;
+    overflow: hidden;
+    /* প্রিমিয়াম ফিনিশের জন্য */
+}
+
+/* মাউস রাখলে বর্ডার এবং শ্যাডো আরও সফট হবে */
+.premium-node:hover {
+    transform: translateY(-8px);
+    border-color: var(--primary);
+    box-shadow: 0 25px 50px -20px rgba(0, 0, 0, 0.15);
+}
+
+/* Icon: Neutral Gray to Primary with subtle glow */
+.node-icon {
+    font-size: 2rem;
+    /* ৪ কলামের জন্য একটু ছোট করা হয়েছে */
+    color: var(--text-main);
+    margin-bottom: 20px;
+    opacity: 0.7;
+    transition: all 0.4s ease;
+}
+
+.premium-node:hover .node-icon {
+    color: var(--primary);
+    opacity: 1;
+    transform: scale(1.1);
+    /* হালকা জুম ইফেক্ট */
+}
+
+.node-title {
+    font-weight: 800;
+    /* আরও বোল্ড করা হয়েছে */
+    color: var(--text-main);
+    margin-bottom: 8px;
+    font-size: 1.1rem;
+    letter-spacing: -0.02em;
+}
+
+.node-desc {
+    color: var(--text-muted);
+    font-size: 12px;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+/* Price Section: More Balanced Spacing */
+.node-price {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+.node-price .old {
+    font-size: 12px;
+    color: var(--text-muted);
+    text-decoration: line-through;
+    opacity: 0.7;
+}
+
+.node-price .new {
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: var(--text-main);
+    letter-spacing: -0.5px;
+}
+
+/* Status Badge: Glassmorphism Touch */
+.node-status {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 9px;
+    font-weight: 900;
+    text-transform: uppercase;
+    background: rgba(239, 68, 68, 0.08);
+    /* ডার্ক মোডে গ্লো করবে না, মার্জ হয়ে থাকবে */
+    color: #ef4444;
+    padding: 4px 12px;
+    border-radius: 6px;
+    letter-spacing: 0.5px;
+}
+
+/* Action Button: Slim & High-Contrast */
+.node-action {
+    display: block;
+    /* ৪ কলামে ফুল উইডথ ভালো দেখায় */
+    padding: 10px 20px;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    /* বর্ডার রেডিয়াস একটু কমানো হয়েছে প্রিমিয়াম লুকের জন্য */
+    font-size: 11px;
+    font-weight: 800; 
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    transition: all 0.3s ease;
+    background: white;
+
+}
+
+.premium-node:hover .node-action {
+    background: var(--primary);
+    color: #ffffff !important;
+    border-color: var(--primary);
+    box-shadow: 0 8px 20px rgba(var(--primary-rgb), 0.2);
+}
+
+
+
+/* --- SIDEBAR PREMIUM EXTENSIONS --- */
+
+/* কার্ডের ভেতরের অ্যালাইনমেন্ট ফিক্স */
+.sidebar-card {
+    text-align: left !important;
+    padding: 30px !important;
+}
+
+/* বাটন স্ট্যাক */
+.btn-premium {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    padding: 12px;
+    border-radius: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    transition: 0.3s;
+    border: none;
+    text-decoration: none !important;
+}
+
+.btn-premium.whatsapp {
+    background: #00b644;
+    color: white !important;
+}
+
+.btn-premium.primary {
+    background: var(--primary);
+    color: white !important;
+}
+
+.btn-premium:hover {
+    filter: brightness(1.1);
+    transform: translateY(-2px);
+}
+
+/* মিনিমাল বাটন (Brochure/Preview) */
+.secondary-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.btn-minimal {
+    background: transparent;
+    border: 1px solid var(--border-color);
+    padding: 8px;
+    border-radius: 8px;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--text-main);
+    transition: 0.3s;
+}
+
+.btn-minimal:hover {
+    background: var(--card-bg);
+    border-color: var(--primary);
+}
+
+/* ফিচার লিস্ট */
+.node-features {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.node-features li {
+    color: var(--text-muted);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.node-features li i {
+    color: #10b981;
+    font-size: 14px;
+}
+
+/* টেক স্ট্যাক ব্যাজ */
+.tech-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.badge-tech {
+    background: rgba(var(--primary-rgb), 0.05);
+    border: 1px solid var(--border-color);
+    color: var(--text-main);
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-weight: 700;
+}
+
+/* স্টিকি সাইডবার পজিশন */
+.sticky-sidebar {
+    position: sticky;
+    top: 100px;
+}
+
+
+.fa-moon {
+    color: #03471b !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 @import url('responsive.css');
