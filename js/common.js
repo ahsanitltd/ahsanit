@@ -1,67 +1,22 @@
-/**
- * AhsanIT Global UI Component Loader
- * Single point of control for Header and Footer
- */
-
-/*
-    <li class="nav-item mega-menu">
-    <a class="nav-link fw-bold">Script Marketplace <i class="fa fa-chevron-down small ms-1"></i></a>
-    <div class="mega-dropdown-box">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-md-3">
-                    <h6 class="fw-bold text-primary mb-3">SaaS Solutions</h6>
-                    <ul class="list-unstyled sub-menu-list">
-                        <li><a href="#"><i class="fa fa-caret-right me-2"></i>Multi-tenant POS</a></li>
-                        <li><a href="#"><i class="fa fa-caret-right me-2"></i>Inventory Management</a></li>
-                        <li><a href="#"><i class="fa fa-caret-right me-2"></i>HRM & Payroll Engine</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-3 border-end">
-                    <h6 class="fw-bold text-primary mb-3">E-Commerce</h6>
-                    <ul class="list-unstyled sub-menu-list">
-                        <li><a href="#"><i class="fa fa-caret-right me-2"></i>Multi-vendor Marketplace</a></li>
-                        <li><a href="#"><i class="fa fa-caret-right me-2"></i>Grocery Delivery App</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-6 p-5 rounded-4 text-center border bg-light">
-                    <h2 class="fw-bold">Looking for Custom Code?</h2>
-                    <p class="text-muted">Building scalable, high-performance systems with Laravel & AWS.</p>
-                    <button class="btn btn-primary rounded-pill px-5 fw-bold shadow">Explore All Scripts</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    </li>
-    <li class="nav-item mega-menu">
-    <a class="nav-link fw-bold">Our Expertise <i class="fa fa-chevron-down small ms-1"></i></a>
-    <div class="mega-dropdown-box" style="width: 50vw; left: 25%; border-radius: 0 0 20px 20px;">
-        <div class="p-4 row align-items-center">
-            <div class="col-6 border-end">
-                <h6 class="fw-bold text-primary mb-3">Technical Arsenal</h6>
-                <ul class="list-unstyled sub-menu-list">
-                    <li><a href="#">PHP / Laravel Expert</a></li>
-                    <li><a href="#">System Architecture</a></li>
-                    <li><a href="#">AWS Cloud Integration</a></li>
-                </ul>
-            </div>
-            <div class="col-6 text-center">
-                <h4 class="fw-bold text-primary">6+ Years</h4>
-                <p class="small text-muted mb-0">Of Professional Experience</p>
-            </div>
-        </div>
-    </div>
-    </li>
-    <button class="btn btn-primary rounded-pill px-4 fw-bold shadow-sm">Hire Developer</button>
-*/
 
 const siteComponents = {
+    head: `
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ahsan IT | Enterprise Solutions & Offers</title>
+        <meta property="og:title" content="Ahsan IT | Enterprise Solutions & Offers">
+        <meta property="og:description" content="Enterprise Laravel Architecture & Fintech Solutions by Ahsan Ahmed.">
+        <meta property="og:image" content="https://ahsanit.net/images/favicon.png">
+        <meta property="og:url" content="https://ahsanit.net">
+        <meta property="og:type" content="website">
+        <link rel="icon" href="../images/favicon.png" type="image/x-icon">
+    `,
     // আপনার অরিজিনাল নেভিগেশন বার
     header: `
     <nav class="navbar navbar-expand-lg sticky-top bg-white border-bottom shadow-sm">
         <div class="container">
             <a class="navbar-brand fw-bold bg-white" href="/">
-                <img src="../images/logo.png" alt="Ahsan IT" class="" width="100px" />
+                <img src="../images/favicon.png" alt="Ahsan IT" class="" width="100px" />
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#ahsanNav">
                 <span class="navbar-toggler-icon"></span>
@@ -162,10 +117,155 @@ const siteComponents = {
                 <p class="text-muted small mb-0">© ২০২৬ <strong>AhsanIT</strong>. আপনার ব্যবসার জন্য কমপ্লিট সলিউশন।</p>
             </div>
         </div>
-    </footer>`
+    </footer>`,
+
+
+
+    actionButtons: [
+        {
+            text: 'WhatsApp',
+            link: 'https://wa.me/8801580314701',
+            class: 'btn-success flex-fill',
+            icon: 'fab fa-whatsapp',
+            type: 'link'
+        },
+        {
+            text: 'Messenger',
+            link: 'https://m.me/ahsanit.net',
+            class: 'btn-primary flex-fill',
+            icon: 'fab fa-facebook-messenger',
+            type: 'link'
+        },
+        {
+            text: 'Live Preview',
+            link: 'https://ecom1.ahsanit.net/',
+            class: 'btn-dark w-100 mt-2',
+            icon: 'fa fa-eye',
+            type: 'swal' // এটি সুইট অ্যালার্ট ট্রিগার করবে
+        }
+    ],
+
+    // বাটন রেন্ডার করার ফাংশন
+    renderActions: function () {
+        let html = '<div class="action-stack"><div class="d-flex gap-2">';
+
+        this.actionButtons.forEach((btn, index) => {
+            // প্রথম দুইটা বাটন পাশাপাশি রাখার জন্য (WhatsApp & Messenger)
+            if (index === 2) html += '</div>'; // ২ নম্বর ইনডেক্সে এসে রো বন্ধ হবে
+
+            html += `
+                <a href="${btn.link}" 
+                   class="btn ${btn.class} fw-bold py-2 action-trigger" 
+                   data-type="${btn.type}" 
+                   data-index="${index}">
+                    <i class="${btn.icon} me-2"></i> 
+                    ${btn.text}
+                </a>`;
+        });
+
+        html += '</div>';
+        return html;
+    }
 };
 
 document.addEventListener("DOMContentLoaded", () => {
+    document.head.insertAdjacentHTML('afterbegin', siteComponents.head);
     document.body.insertAdjacentHTML('afterbegin', siteComponents.header);
     document.body.insertAdjacentHTML('beforeend', siteComponents.footer);
+
+    // নির্দিষ্ট কন্টেইনারে বাটনগুলো পুশ করা
+    const container = document.querySelector('.action-stack');
+    if (container) {
+        container.innerHTML = siteComponents.renderActions();
+    }
+
+    // ক্লিক হ্যান্ডলার
+    document.addEventListener('click', function (e) {
+        const target = e.target.closest('.action-trigger');
+        if (!target) return;
+
+        if (target.getAttribute('data-type') === 'swal') {
+            e.preventDefault();
+            const btnIndex = target.getAttribute('data-index');
+            const btnData = siteComponents.actionButtons[btnIndex];
+
+            Swal.fire({
+                title: 'Demo Access Notice',
+                text: "To view the demo, please contact us on WhatsApp or Messenger for credentials.",
+                icon: 'info',
+                showCancelButton: true,
+                confirmButtonText: 'View Live Anyway',
+                cancelButtonText: 'I will contact',
+                reverseButtons: true
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.open(btnData.link, "_blank");
+                } else {
+                    window.location.href = "https://wa.me/8801580314701";
+                }
+            });
+        }
+    });
 });
+
+
+
+
+
+/**
+ * 
+ * AhsanIT Global UI Component Loader
+ * Single point of control for Header and Footer
+ */
+
+/*
+    <li class="nav-item mega-menu">
+    <a class="nav-link fw-bold">Script Marketplace <i class="fa fa-chevron-down small ms-1"></i></a>
+    <div class="mega-dropdown-box">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-3">
+                    <h6 class="fw-bold text-primary mb-3">SaaS Solutions</h6>
+                    <ul class="list-unstyled sub-menu-list">
+                        <li><a href="#"><i class="fa fa-caret-right me-2"></i>Multi-tenant POS</a></li>
+                        <li><a href="#"><i class="fa fa-caret-right me-2"></i>Inventory Management</a></li>
+                        <li><a href="#"><i class="fa fa-caret-right me-2"></i>HRM & Payroll Engine</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 border-end">
+                    <h6 class="fw-bold text-primary mb-3">E-Commerce</h6>
+                    <ul class="list-unstyled sub-menu-list">
+                        <li><a href="#"><i class="fa fa-caret-right me-2"></i>Multi-vendor Marketplace</a></li>
+                        <li><a href="#"><i class="fa fa-caret-right me-2"></i>Grocery Delivery App</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-6 p-5 rounded-4 text-center border bg-light">
+                    <h2 class="fw-bold">Looking for Custom Code?</h2>
+                    <p class="text-muted">Building scalable, high-performance systems with Laravel & AWS.</p>
+                    <button class="btn btn-primary rounded-pill px-5 fw-bold shadow">Explore All Scripts</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    </li>
+    <li class="nav-item mega-menu">
+    <a class="nav-link fw-bold">Our Expertise <i class="fa fa-chevron-down small ms-1"></i></a>
+    <div class="mega-dropdown-box" style="width: 50vw; left: 25%; border-radius: 0 0 20px 20px;">
+        <div class="p-4 row align-items-center">
+            <div class="col-6 border-end">
+                <h6 class="fw-bold text-primary mb-3">Technical Arsenal</h6>
+                <ul class="list-unstyled sub-menu-list">
+                    <li><a href="#">PHP / Laravel Expert</a></li>
+                    <li><a href="#">System Architecture</a></li>
+                    <li><a href="#">AWS Cloud Integration</a></li>
+                </ul>
+            </div>
+            <div class="col-6 text-center">
+                <h4 class="fw-bold text-primary">6+ Years</h4>
+                <p class="small text-muted mb-0">Of Professional Experience</p>
+            </div>
+        </div>
+    </div>
+    </li>
+    <button class="btn btn-primary rounded-pill px-4 fw-bold shadow-sm">Hire Developer</button>
+*/
