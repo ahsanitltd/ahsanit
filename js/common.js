@@ -18,7 +18,6 @@ const siteComponents = {
  
 
         <!-- 2. Preload Files -->
-        <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style">
         <link rel="preload" href="../css/bootstrap.css" as="style">
         <link rel="preload" href="../css/poppins.css" as="style">
         <link rel="preload" href="../css/swiper-bundle.css" as="style">
@@ -44,7 +43,7 @@ const siteComponents = {
         <meta name="twitter:image" content="https://ahsanit.net/images/og-banner.webp">
         <meta name="twitter:url" content="https://ahsanit.net">
 
-        
+
         <!-- 4. Icon -->
         <link rel="icon" type="image/webp" href="../images/favicon.webp">
   
@@ -57,6 +56,7 @@ const siteComponents = {
         <!-- 6. main custom styling -->
         <link rel="stylesheet" href="../css/style.css">
     `,
+
     // আপনার অরিজিনাল নেভিগেশন বার
     header: `
     <nav class="navbar navbar-expand-lg sticky-top bg-white border-bottom shadow-sm">
@@ -165,26 +165,24 @@ const siteComponents = {
         </div>
     </footer>`,
 
-
-
     actionButtons: [
         {
-            text: 'WhatsApp',
+            text: '',
             link: 'https://wa.me/8801580314701',
             class: 'btn-success flex-fill',
             icon: 'fab fa-whatsapp',
             type: 'link'
         },
         {
-            text: 'Messenger',
+            text: '',
             link: 'https://m.me/ahsanit.net',
             class: 'btn-primary flex-fill',
             icon: 'fab fa-facebook-messenger',
             type: 'link'
         },
         {
-            text: 'Live Preview',
-            link: 'https://ecom1.ahsanit.net/',
+            text: 'Live Demo',
+            link: '',
             class: 'btn-dark w-100 mt-2',
             icon: 'fa fa-eye',
             type: 'swal' // এটি সুইট অ্যালার্ট ট্রিগার করবে
@@ -193,14 +191,18 @@ const siteComponents = {
 
     // বাটন রেন্ডার করার ফাংশন
     renderActions: function () {
-        let html = '<div class="action-stack"><div class="d-flex gap-2">';
+        const liveUrl = document.querySelector('.live-trigger')?.getAttribute('href') || '#';
+
+        let html = '<div class="d-flex gap-2">';
 
         this.actionButtons.forEach((btn, index) => {
             // প্রথম দুইটা বাটন পাশাপাশি রাখার জন্য (WhatsApp & Messenger)
-            if (index === 2) html += '</div>'; // ২ নম্বর ইনডেক্সে এসে রো বন্ধ হবে
+            if (index === 2) html += '</div>';
+
+            const finalLink = (index === 2) ? liveUrl : btn.link;
 
             html += `
-                <a href="${btn.link}" 
+                <a href="${finalLink}" 
                    class="btn ${btn.class} fw-bold py-2 action-trigger" 
                    data-type="${btn.type}" 
                    data-index="${index}">
@@ -210,7 +212,50 @@ const siteComponents = {
         });
 
         html += '</div>';
+        html += `<!-- Optional Installation Cost -->
+        <div class="installation-addon mt-5 p-2 rounded bg-light border-start border-primary border-3">
+            <div class="d-flex justify-content-between align-items-center">
+                <span class="small fw-bold text-dark">Installation Service:</span>
+                <span class="badge bg-primary">৳3,000</span>
+            </div>
+        </div>`;
+
         return html;
+    },
+
+    demoCreds: `
+    <h4 class="section-title h5 fw-bold mb-3">
+        <i class="fa-solid fa-key me-2 text-success"></i>System Access (Demo)
+    </h4>
+    <div class="row g-3">
+        <div class="col-md-6">
+            <div class="login-access-box border-start border-4 border-success p-3 rounded-end shadow-sm"
+                style="background:#f0fdf4;">
+                <h6 class="fw-bold text-success mb-2">
+                    <i class="fa fa-user-shield me-2"></i>Admin Dashboard
+                </h6>
+                <p class="small mb-1 text-muted">URL: <code class="bg-white px-2">/admin/login</code></p>
+                <p class="small mb-0 text-muted">User: <code class="bg-white px-2">admin@demo.com</code> | <code class="bg-white px-2">123456</code></p>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="login-access-box border-start border-4 border-primary p-3 rounded-end shadow-sm"
+                style="background:#eff6ff;">
+                <h6 class="fw-bold text-primary mb-2">
+                    <i class="fa fa-shopping-cart me-2"></i>Customer Access
+                </h6>
+                <p class="small mb-1 text-muted">URL: <code class="bg-white px-2">/users/login</code></p>
+                <p class="small mb-0 text-muted">User: <code class="bg-white px-2">01999999999</code> | <code class="bg-white px-2">123456</code></p>
+            </div>
+        </div>
+    </div> `,
+
+    // কন্টেন্ট লোড করার জন্য একটি ফাংশন (অপশনাল কিন্তু প্রফেশনাল)
+    initDemoSection: function () {
+        const target = document.querySelector('.demo-creds');
+        if (target) {
+            target.innerHTML = this.demoCreds;
+        }
     }
 };
 
@@ -219,11 +264,37 @@ document.addEventListener("DOMContentLoaded", () => {
     document.body.insertAdjacentHTML('afterbegin', siteComponents.header);
     document.body.insertAdjacentHTML('beforeend', siteComponents.footer);
 
+    // ডেমো ক্রেড ইনজেকশন
+    siteComponents.initDemoSection();
+
     // নির্দিষ্ট কন্টেইনারে বাটনগুলো পুশ করা
     const container = document.querySelector('.action-stack');
     if (container) {
         container.innerHTML = siteComponents.renderActions();
     }
+
+    $(window).on('load', function () {
+        // ১. গ্রিড ইনিশিয়ালাইজ করুন
+        var $grid = $('.grid').isotope({
+            itemSelector: '.grid-item',
+            layoutMode: 'fitRows',
+            percentPosition: true // এটি গ্রিডকে আরও স্টেবল করবে
+        });
+
+        // ২. ম্যাজিক লাইন: লোড হওয়ার পর লেআউট আবার রিফ্রেশ করা
+        setTimeout(function () {
+            $grid.isotope('layout');
+        }, 200); // ২০০ মিলি-সেকেন্ড পর এটি অটো-ফিক্স করবে
+
+        // ফিল্টার বাটন ক্লিক হ্যান্ডলার
+        $('.filter-btn').on('click', function () {
+            var filterValue = $(this).attr('data-filter');
+            $grid.isotope({ filter: filterValue });
+
+            $('.filter-btn').removeClass('active btn-primary').addClass('btn-outline-primary');
+            $(this).addClass('active btn-primary').removeClass('btn-outline-primary');
+        });
+    });
 
     // ক্লিক হ্যান্ডলার
     document.addEventListener('click', function (e) {
@@ -252,66 +323,5 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         }
     });
+
 });
-
-
-
-
-
-/**
- * 
- * AhsanIT Global UI Component Loader
- * Single point of control for Header and Footer
- */
-
-/*
-    <li class="nav-item mega-menu">
-    <a class="nav-link fw-bold">Script Marketplace <i class="fa fa-chevron-down small ms-1"></i></a>
-    <div class="mega-dropdown-box">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-md-3">
-                    <h6 class="fw-bold text-primary mb-3">SaaS Solutions</h6>
-                    <ul class="list-unstyled sub-menu-list">
-                        <li><a href="#"><i class="fa fa-caret-right me-2"></i>Multi-tenant POS</a></li>
-                        <li><a href="#"><i class="fa fa-caret-right me-2"></i>Inventory Management</a></li>
-                        <li><a href="#"><i class="fa fa-caret-right me-2"></i>HRM & Payroll Engine</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-3 border-end">
-                    <h6 class="fw-bold text-primary mb-3">E-Commerce</h6>
-                    <ul class="list-unstyled sub-menu-list">
-                        <li><a href="#"><i class="fa fa-caret-right me-2"></i>Multi-vendor Marketplace</a></li>
-                        <li><a href="#"><i class="fa fa-caret-right me-2"></i>Grocery Delivery App</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-6 p-5 rounded-4 text-center border bg-light">
-                    <h2 class="fw-bold">Looking for Custom Code?</h2>
-                    <p class="text-muted">Building scalable, high-performance systems with Laravel & AWS.</p>
-                    <button class="btn btn-primary rounded-pill px-5 fw-bold shadow">Explore All Scripts</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    </li>
-    <li class="nav-item mega-menu">
-    <a class="nav-link fw-bold">Our Expertise <i class="fa fa-chevron-down small ms-1"></i></a>
-    <div class="mega-dropdown-box" style="width: 50vw; left: 25%; border-radius: 0 0 20px 20px;">
-        <div class="p-4 row align-items-center">
-            <div class="col-6 border-end">
-                <h6 class="fw-bold text-primary mb-3">Technical Arsenal</h6>
-                <ul class="list-unstyled sub-menu-list">
-                    <li><a href="#">PHP / Laravel Expert</a></li>
-                    <li><a href="#">System Architecture</a></li>
-                    <li><a href="#">AWS Cloud Integration</a></li>
-                </ul>
-            </div>
-            <div class="col-6 text-center">
-                <h4 class="fw-bold text-primary">6+ Years</h4>
-                <p class="small text-muted mb-0">Of Professional Experience</p>
-            </div>
-        </div>
-    </div>
-    </li>
-    <button class="btn btn-primary rounded-pill px-4 fw-bold shadow-sm">Hire Developer</button>
-*/
