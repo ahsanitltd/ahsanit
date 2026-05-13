@@ -3,20 +3,62 @@ const siteComponents = {
     head: `
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Ahsan IT | Enterprise Solutions & Offers</title>
+
+        <!-- 1. Preconnect & DNS-Prefetch (Domain Level) -->
+        <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+        <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="preconnect" href="https://unpkg.com">
+
+        <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+        <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+        <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+        <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+ 
+
+        <!-- 2. Preload Files -->
+        <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style">
+        <link rel="preload" href="../css/bootstrap.css" as="style">
+        <link rel="preload" href="../css/poppins.css" as="style">
+        <link rel="preload" href="../css/swiper-bundle.css" as="style">
+        <!-- Google Fonts Preload (যদি লোকাল poppins.css যথেষ্ট না হয়) -->
+        <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" as="style">
+
+
+        <!-- 3. Meta Tags (আপনার বর্তমান কোড অনুযায়ী) -->
+        <meta name="description" content="Professional IT and eCommerce solutions tailored for your business.">
         <meta property="og:title" content="Ahsan IT | Enterprise Solutions & Offers">
-        <meta property="og:description" content="Enterprise Laravel Architecture & Fintech Solutions by Ahsan Ahmed.">
-        <meta property="og:image" content="https://ahsanit.net/images/favicon.png">
+        <meta property="og:description" content="Brief description of your services.">
         <meta property="og:url" content="https://ahsanit.net">
         <meta property="og:type" content="website">
-        <link rel="icon" href="../images/favicon.png" type="image/x-icon">
+        <meta property="og:image" content="../images/og-banner.webp">
+        <meta property="og:image:width" content="1200">
+        <meta property="og:image:height" content="630">
+
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="Ahsan IT | Enterprise Solutions & Offers">
+        <meta name="twitter:image" content="../images/og-banner.webp">
+
+        <!-- 4. Icon -->
+        <link rel="icon" type="image/webp" href="../images/favicon.webp">
+        <link rel="shortcut icon" type="image/webp" href="../images/favicon.png" alt="Professional IT and eCommerce solutions tailored for your business." />
+
+        
+        <!-- 5. global styling -->
+        <link rel="stylesheet" href="../css/bootstrap.css">
+        <link rel="stylesheet" href="../css/poppins.css">
+        <link rel="stylesheet" href="../css/swiper-bundle.css">
+        
+        <!-- 6. main custom styling -->
+        <link rel="stylesheet" href="../css/style.css">
     `,
     // আপনার অরিজিনাল নেভিগেশন বার
     header: `
     <nav class="navbar navbar-expand-lg sticky-top bg-white border-bottom shadow-sm">
         <div class="container">
             <a class="navbar-brand fw-bold bg-white" href="/">
-                <img src="../images/favicon.png" alt="Ahsan IT" class="" width="100px" />
+                <img src="../images/favicon.webp" alt="Ahsan IT" class="" width="100px" />
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#ahsanNav">
                 <span class="navbar-toggler-icon"></span>
