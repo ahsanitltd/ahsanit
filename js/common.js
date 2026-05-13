@@ -22,8 +22,6 @@ const siteComponents = {
         <link rel="preload" href="../css/bootstrap.css" as="style">
         <link rel="preload" href="../css/poppins.css" as="style">
         <link rel="preload" href="../css/swiper-bundle.css" as="style">
-        <!-- Google Fonts Preload (যদি লোকাল poppins.css যথেষ্ট না হয়) -->
-        <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" as="style">
 
 
         <!-- 3. Meta Tags (আপনার বর্তমান কোড অনুযায়ী) -->
@@ -32,18 +30,24 @@ const siteComponents = {
         <meta property="og:description" content="Brief description of your services.">
         <meta property="og:url" content="https://ahsanit.net">
         <meta property="og:type" content="website">
-        <meta property="og:image" content="../images/og-banner.webp">
+        <meta property="og:image" content="https://ahsanit.net/images/og-banner.webp">
+        <meta property="og:image:secure_url" content="https://ahsanit.net/images/og-banner.webp">
+        <meta property="og:image:type" content="image/webp">
         <meta property="og:image:width" content="1200">
         <meta property="og:image:height" content="630">
 
+        <!-- Twitter Card Tags -->
         <meta name="twitter:card" content="summary_large_image">
         <meta name="twitter:title" content="Ahsan IT | Enterprise Solutions & Offers">
-        <meta name="twitter:image" content="../images/og-banner.webp">
+        <meta name="twitter:description" content="Professional IT and eCommerce solutions tailored for your business.">
+        <!-- এখানেও সম্পূর্ণ ইউআরএল ব্যবহার করুন -->
+        <meta name="twitter:image" content="https://ahsanit.net/images/og-banner.webp">
+        <meta name="twitter:url" content="https://ahsanit.net">
 
+        
         <!-- 4. Icon -->
         <link rel="icon" type="image/webp" href="../images/favicon.webp">
-        <link rel="shortcut icon" type="image/webp" href="../images/favicon.png" alt="Professional IT and eCommerce solutions tailored for your business." />
-
+  
         
         <!-- 5. global styling -->
         <link rel="stylesheet" href="../css/bootstrap.css">
